@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    {% include 'nav.html' %}
+    <div class="container">
+        <div class="main_div">
+            <img src="{% static 'images/hari2.JPG' %}" alt="my pic"  class="my_img">
+            <div class="sub_div" data-aos="fade-right">  
+                <p class="first"><span style="font-weight: 900; font-size:25px;">|</span> HI THERE! I'M</p>
+                <h1 class="big_heading font-effect-emboss"><span style="color:rgb(219, 5, 219);">HARI </span>HARAN</h1>
+                <p class="para">A <span style="color:rgb(219, 5, 219); font-weight:800;">Full stack Developer</span> passionate about transforming innovative ideas into dynamic and functional online experiences. Armed with expertise in HTML, CSS, JavaScript, and a keen eye for design, I thrive on creating visually appealing and user-friendly websites.</p>
+                <button class="btn1"><a href="" class="link1">Resume</a></button>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-google"></i>
+            </div>
+        </div>
+        <div class="our">
+            <div class="mission" data-aos="fade-up" data-aos-duration="1500">
+                <h1 class="my">MY MISSION</h1>
+                <p class="para2">As a dedicated Full Stack Developer, I am driven by a passion for translating 
+                    innovative concepts into dynamic and functional online experiences. With a robust 
+                    skill set encompassing HTML, CSS, JavaScript, and a discerning eye for design, I 
+                    specialize in crafting visually appealing and user-friendly websites. My commitment 
+                    to staying abreast of industry trends and technologies allows me to deliver cutting-edge 
+                    solutions that seamlessly blend creativity and functionality. I am enthusiastic about 
+                    leveraging my expertise to contribute to the ever-evolving landscape of web development.
+                </p>
+            </div>
+            <div class="vision" data-aos="fade-up" data-aos-duration="1500">
+                <H1 class="my">MY VISION</H1>
+                <p class="para2">As a web developer, my vision is to seamlessly blend creativity and functionality, 
+                    bringing innovative concepts to life in the digital realm. With a fervent passion for 
+                    transforming ideas into dynamic and user-centric online experiences, I am driven by the
+                    belief that every website should be a harmonious fusion of aesthetic appeal and technical 
+                    precision.My vision extends beyond code; it encompasses a commitment to continuous learning 
+                    and staying ahead of industry trends, ensuring that every project I undertake reflects the 
+                    cutting edge of web development. 
+                </p>
+            </div>
+        </div>
+        <div class="main_skill">
+            <h1 class="hone" style="color: aqua;" id="hone" data-aos="flip-up">My Skills</h1>
+            <div class="row_skills">
+                <div class="animation" data-aos="fade-right" data-aos-duration="600">
+                    <div class="skill skill1">
+                        <h1 class="hone">Front End</h1>
+                        <li></i><h3 class="hthree"><i class="fa-brands fa-html5"></i>HTML</h3>
+                            <span class="bar"><span class="html"></span></span   
+                        </li>
+                        <li><h3 class="hthree"><i class="fa-brands fa-css3-alt"></i>CSS</h3>
+                            <span class="bar"><span class="css"></span></span    
+                       </li>
+                        <li><h3 class="hthree"><i class="fa-brands fa-js" style="color: #f00808;"></i></i>JAVA SCRIPT </h3>
+                            <span class="bar"><span class="javascript"></span></span    
+                       </li>
+                    </div>
+                </div>
+                <div class="animation" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="skill skill2">
+                        <h1 class="hone">Back End</h1>
+                        <li><h3 class="hthree"><i class="fa-brands fa-python" style="color: #ff00fb;"></i>PYTHON</h3>
+                            <span class="bar"><span class="python"></span></span   
+                        </li>
+                        <li><h3 class="hthree"><i class="fa-solid fa-scroll"></i>DJANGO</h3>
+                            <span class="bar"><span class="jango"></span></span    
+                       </li>
+                        <li><h3 class="hthree"><i class="fa-solid fa-code"></i>My SQL</h3>
+                            <span class="bar"><span class="sql"></span></span    
+                       </li>
+                    </div>
+                </div>
+                <div class="animation" data-aos="fade-right" data-aos-duration="1700">
+                    <div class="skill skill3">
+                        <h1 class="hone">Other Skills</h1>
+                        <li><h3 class="hthree"><i class="fa-regular fa-file-code" style="color: #d400ff;"></i>C</h3>
+                            <span class="bar"><span class="c"></span></span   
+                        </li>
+                        <li><h3 class="hthree"><i class="fa-solid fa-chalkboard" style="color: #ff0000;"></i>Type Writing</h3>
+                            <span class="bar"><span class="type"></span></span    
+                       </li>
+                        <li><h3 class="hthree"><i class="fa-brands fa-square-github"></i>Git & Git Hub</h3>
+                            <span class="bar"><span class="git"></span></span    
+                       </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<footer class="footer">
+    <div class="one foot" data-aos="zoom-in-right">
+        <h1 class="h_one">Contact</h1>
+        <ul class="ul_com">
+            <li class="li_com">052-232-2584</li>
+            <li class="li_com">hariharan.a69@gmail.com</li>
+        </ul>
+    </div>
+    <div class="two foot" data-aos="zoom-in-right">
+        <h1 class="h_one">Hours</h1>
+        <ul class="ul_com">
+            <li class="li_com">Monday - Saturday</li>
+            <li class="li_com">9 am - 5 pm</li>
+        </ul>
+    </div>
+    <div class="three foot" data-aos="fade-up" >
+        <h1 class="h_one">Location</h1>
+        <ul class="ul_com">
+            <li class="li_com">Muhaisnah 2</li>
+            <li class="li_com">Dubai</li>
+        </ul>
+    </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
+</body>
+</html>

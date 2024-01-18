@@ -1,0 +1,468 @@
+* { margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Poppins';       
+}
+.main_div{
+    width: 100%;
+    height: 100vh;
+    background-color:black;
+}
+.my_img{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    float: right;
+    margin-top: 150px;
+    margin-right:250px ;
+    border-radius: 50%;
+    border: 3px solid rgb(219, 5, 219);
+    transition: transform .3s;
+}
+.my_img:hover{
+    transform: scale(1.3);
+}
+.sub_div{
+    width: 500px;
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 200px;
+}
+.first{
+    font-size: 20px;
+    margin-top: 10px;
+    color: aliceblue;
+}
+.big_heading{
+    margin-top: 10px;
+    color: aliceblue;
+}
+.para{
+    margin-top: 10px;
+    text-align: justify;
+    letter-spacing: 0.1em;
+    color: aliceblue;
+}
+.btn1{
+    padding: 10px 30px;
+    margin-top: 35px;
+    border-radius: 50px;
+    background-color: rgb(255, 0, 255);
+    transition: transform .3s;
+    color: aliceblue;
+}
+.btn1:hover{
+    background-color:red;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.link1{
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 30px;
+}
+.fa-google, .fa-github, .fa-linkedin{
+    font-size: 25px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 35px;
+    color: rgb(219, 5, 219);
+    transition: transform .3s;           
+}
+.fa-google:hover, .fa-github:hover, .fa-linkedin:hover{
+    color: red;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+.our{
+    display: flex;
+    width: 100%;
+    height: auto;  
+    text-align: justify;
+    margin-bottom: 50px;
+}
+.mission, .vision{
+    width: 35%;
+    height: auto;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+.my{
+    color: red;
+}
+.para2{
+    margin-top: 30px;
+}
+.footer{
+    background-image: linear-gradient(to right, white 0%,#87b2f3 5%, #79dcf8 50%, #79cf79 95%, white 100%);
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
+.two, .three{
+    margin-left: 200px;
+}
+.h_one{
+    color: darkorange;
+}
+.ul_com{
+    margin-top: 20px;
+}
+.li_com{
+    list-style: none;
+}
+
+/* skills */
+
+.main_skill{
+    width: 100%;
+    position: relative;
+    list-style: none;   
+    background-color: saddlebrown;         
+}
+.hone{
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 45px;
+}
+#hone{
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        1px 8px 1px #919191,
+        1px 9px 1px #919191,
+        1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+.hthree{
+    margin: 5px;
+}
+.row_skills{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.animation{
+    width: 30%;
+    display: flex;
+}
+.skill{
+    width: 99%;
+    margin-bottom: 50px;
+    padding: 10px;
+    background-color: aliceblue;
+    padding: 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transition: transform .3s;
+}
+.skill:hover{
+    transform: scale(1.05);
+    box-shadow:  14px 28px rgba(0, 0, 0, 0.25),  10px 10px rgba(0, 0, 0, 0.22);
+
+}
+.skill2, .skill3{
+    margin-left: 30px;
+}
+.skill li{
+    margin: 20px 0;
+    padding: 20px;
+}
+.bar{
+    background: #353b48;
+    height: 20px;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius:10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,.1);
+}
+.bar:hover{
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.bar span{
+    height: 20px;
+    float: left;
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);        }
+.html{
+    width: 95%;
+    animation: html 3s;
+}
+.css{
+    width: 90%;
+    animation: css 3s;
+}
+.javascript{
+    width: 80%;
+    animation: javascript 3s;
+}
+.python{
+    width: 80%;
+    animation: python 3s;
+}
+.jango{
+    width: 75%;
+    animation: jango 3s;
+}
+.sql{
+    width: 90%;
+    animation: sql 3s;
+}
+.c{
+    width: 70%;
+    animation: c 3s;
+}
+.type{
+    width: 95%;
+    animation: type 3s;
+}
+.git{
+    width: 80%;
+    animation: git 3s;
+}
+@keyframes html{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 95%;
+    }
+}
+@keyframes css{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 90%;
+    }
+}
+@keyframes javascript{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 80%;
+    }
+}
+@keyframes python{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 80%;
+    }
+}
+@keyframes jango{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 75%;
+    }
+}
+@keyframes sql{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 90%;
+    }
+}
+@keyframes c{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 75%;
+    }
+}
+@keyframes type{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 95%;
+    }
+}
+@keyframes git{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 90%;
+    }
+}
+.fa-html5{
+    margin-top: -2px;
+    padding: 0 5px;
+    color: red;
+}
+.fa-css3-alt{   
+    color: blue;
+    padding: 0 5px;
+}
+.fa-js{
+    padding: 0 5px;
+}
+.fa-python{
+    padding: 0 5px;
+}
+.fa-scroll, .fa-file-code, .fa-chalkboard{
+    padding: 0 5px;
+}
+.fa-code{
+    padding: 0 5px;
+    color: blue;
+}
+.fa-square-github{
+    padding: 0 5px;
+    color: blueviolet;
+}
+@media screen and (max-width: 1361px) {
+    .my_img{
+        margin-right: 80px;
+        margin-top: 158px;
+    }
+}
+@media screen and (max-width: 1181px) {
+    .my_img{
+        margin-right: 50px;
+    }
+    .sub_div{
+        margin-left: 50px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .main_div{
+        margin-top: -160px;
+        height: 800px;
+        position: relative;
+    }
+    .my_img{
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .sub_div{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+        position: relative;
+    }
+    .our{
+        display: block;
+       
+    }
+    .mission, .vision{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+    }
+    .row_skills{
+        display: block;
+        margin-bottom: 5%;
+    }
+    .animation{
+        width: 100%;
+    }
+    .skill{
+        width: 50%;
+        margin-left: auto;
+        margin-right:auto ;
+        margin-top: 20px;
+    }
+
+}
+@media screen and (max-width: 906px) {
+    .two, .three{
+          margin-left: 50px;
+        }
+    .skill{
+        width: 70%;
+    }
+    .my_img:hover{
+        transform: scale(1.05);
+    }
+}
+@media screen and (max-width: 608px) {
+    .footer{
+        display: block;
+        height: 85vh;
+        margin-top: -50px;
+    }
+    .foot{
+        margin-left: 150px;
+    }
+    .h_one{
+        margin-top: 40px;
+    }
+    .ul_com{
+        margin-top: 5px;
+    }
+}
+@media screen and (max-width: 568px) {
+    .first{
+        font-size: 17px;
+    }
+    .big_heading{
+        font-size: 25px;
+    }
+    .para{
+        font-size: 15px;
+    }
+    .my{
+        font-size: 30px;
+    }
+    .mission, .vision{
+        font-size: 15px;
+    }
+    .hone{
+        font-size: 35px;
+    }
+    .h_one{
+        font-size: 28px;
+    }
+}
+@media screen and (max-width: 506px) {
+    .skill{
+        width: 90%;
+    }
+    .sub_div{
+        width: 95%;
+    }           
+}
+@media screen and (max-width: 425px) {
+    .my_img{
+        width: 300px;
+        height: 300px;
+    }
+    .fa-google, .fa-github, .fa-linkedin{
+        margin-right: 25px;
+    }
+    .three{
+        margin-bottom: 100px;
+    }
+    
+}
+@media screen and (max-width: 378px) {
+    .fa-google, .fa-github, .fa-linkedin{
+        margin-right: 15px;
+    }
+    .foot{
+        margin-left: 80px;
+    }
+}
