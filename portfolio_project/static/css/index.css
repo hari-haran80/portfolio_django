@@ -434,18 +434,45 @@ h4{
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+/* customer original review  section*/
 .main_customer1{
-    margin-top: 0;
-    display: flex;
-    background-color: rgb(233, 233, 233);
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
     width: 100%;
+    background-color: rgb(233, 233, 233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .sub_customer1{
+    width: 98%;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
+.data_div{
+    padding: 15px;
+    width: 320px;
+}
+.customer_new{
+    width: 100%;
+    display: inline-block;
+}
+.customer_new:hover{
+    box-shadow: 10px 10px 9px red;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+.customer_new:hover .small_heading{
+    background-color: rgb(255, 0, 136);
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+}
+.customer.new:hover .Profile{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.2);
+}
+/* end of customer original review section */
 .data_div{
     margin-top: 0;
     margin-bottom: 50px;

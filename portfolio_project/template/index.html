@@ -213,7 +213,7 @@
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
-                    <a href="" class="edit_review">Edit review</a>
+                    <a href="update_data/{{x.id}}" class="edit_review">Edit review</a>
                         <div class="star_img_div">
                             <img src="../static/images/4star-removebg-preview.png" alt="" class="star_img">
                         </div>
@@ -228,12 +228,12 @@
                             </div>
                         </div>
                         <div class="del_button">
-                            <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
+                            <button type="button" class="del_buttonoriginal"><a href="del_data/{{x.id}}" class="del_review">Delete Review</a></button>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
     <!-- end of the customer review div -->

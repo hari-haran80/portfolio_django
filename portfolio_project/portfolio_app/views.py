@@ -42,5 +42,18 @@ def view_image(request):
         if form.is_valid():
             form.save()
     form = ImageForms()
-    return render(request,'img.html',{'form':form})
+    return render(request,'img.html',{'form':form})    
 
+def update_review(request, id):
+    update = Img.objects.get(pk = id)
+    if request.method == 'POST':
+        new =ImageForms( data = request.POST, files = request.FILES)
+        if new.is_valid():
+            new.save()
+            return redirect('home')
+    return render(request, 'update.html',{'update':update})
+
+def delete_review(request, id):
+    data = Img.objects.get(pk = id)
+    data.delete()
+    return redirect('home')
