@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+    {% include 'nav.html' %}
     <header class="header">
         <i><h1 class="fname own" style="letter-spacing: 0.3rem;" >Hari <span style="color: rgb(255, 238, 0); margin-left:10px; letter-spacing: 0.3rem;" > Haran</span></h1></i>
         <nav class="navigation">
@@ -103,11 +104,15 @@
             <div class="review_div">
                 <h1 class="review_heading" data-aos="fade-down">Customer Review</h1>
             </div>
+            <div class="write_review">
+                <a href="./img.html" class="review_link fa-solid fa-pencil" data-aos="fade-down"> Write review</a>
+            </div>
             <div data-aos="fade-down-right" data-aos-duration="0">
                 <div class="customer1 customer"  >
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
+                    <a href="" class="edit_review">Edit review</a>
                     <div class="star_img_div">
                         <img src="../static/images/4.5star.png" alt="" class="star_img">
                     </div>
@@ -121,6 +126,9 @@
                             <p>GM of Stark Technologies</p>  
                         </div>
                     </div>
+                    <div class="del_button">
+                        <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
+                    </div>
                 </div>
             </div>
             <div data-aos="fade-down-right" data-aos-duration="500">
@@ -128,6 +136,7 @@
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
+                    <a href="" class="edit_review">Edit review</a>
                     <div class="star_img_div">
                         <img src="../static/images/4star-removebg-preview.png" alt="" class="star_img">
                     </div>
@@ -141,6 +150,9 @@
                             <p>CEO of Body Building</p>  
                         </div>
                     </div>
+                    <div class="del_button">
+                        <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
+                    </div>
                 </div>
             </div>
             <div data-aos="fade-down-right" data-aos-duration="1000">
@@ -148,6 +160,7 @@
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
+                    <a href="" class="edit_review">Edit review</a>
                     <div class="star_img_div">
                         <img src="../static/images/5sta.png" alt="" class="star_img">
                     </div>
@@ -161,6 +174,9 @@
                             <p>General Manager in Gimnastic</p>  
                         </div>
                     </div>
+                    <div class="del_button">
+                        <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
+                    </div>
                 </div>
             </div>
             <div data-aos="fade-down-right" data-aos-duration="1500">
@@ -168,6 +184,7 @@
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
+                    <a href="" class="edit_review">Edit review</a>
                     <div class="star_img_div">
                         <img src="../static/images/5sta.png" alt="" class="star_img">
                     </div>
@@ -181,12 +198,46 @@
                             <p>Founder of Shield</p>  
                         </div>
                     </div>
+                    <div class="del_button">
+                        <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="main_customer1">
+        <div class="sub_customer1">
+            {% for x in image %}
+            <div data-aos="fade-down-right" data-aos-duration="500" class="data_div">
+                <div class="customer" >
+                    <div class="small_heading">
+                        <h1>❝</h1>
+                    </div>
+                    <a href="" class="edit_review">Edit review</a>
+                        <div class="star_img_div">
+                            <img src="../static/images/4star-removebg-preview.png" alt="" class="star_img">
+                        </div>
+                        <p>{{x.write_review}}</p>
+                        <div class="name_photo_div">
+                            <div class="photo">
+                                <img src="{{x.profile}}" alt="" class="Profile">
+                            </div>
+                            <div class="customer_name">
+                                <h3>{{x.name}}</h3>
+                                <p>{{x.position}}</p>  
+                            </div>
+                        </div>
+                        <div class="del_button">
+                            <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
     <!-- end of the customer review div -->
-    
+
     <div class="end_div">
         <div class="div_one" data-aos="fade-down-right">
             <h1>Let's design Something <span style="color: red;">together?</span></h1>

@@ -19,4 +19,5 @@ urlpatterns = [
     path('new account.html', views.register, name = 'register'),
     path('contact', views.contact, name = 'contact'),
     path('contact.html', views.contact, name = 'contact'),
+    path('img.html', views.view_image, name='view image'),
 ]

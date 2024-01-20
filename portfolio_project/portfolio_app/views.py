@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
+from .forms import ImageForms
 
 def home(request):
-    return render(request, 'index.html')
+    data = Img.objects.all()
+    return render(request, 'index.html',{'image':data})
 
 def about(request):
     return render(request, 'about.html')
@@ -33,4 +35,12 @@ def contact(request):
         return render(request, 'contact.html',{'name': name, 'email': email, 'text':text})
     return render(request, 'contact.html')
 
+
+def view_image(request):
+    if request.method == 'POST':
+        form =ImageForms( data = request.POST, files = request.FILES)
+        if form.is_valid():
+            form.save()
+    form = ImageForms()
+    return render(request,'img.html',{'form':form})
 
