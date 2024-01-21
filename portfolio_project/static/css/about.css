@@ -6,15 +6,25 @@
 .main_div{
     width: 100%;
     height: 100vh;
-    background-color:black;
+    display: flex;
+    background-color: black;
+}
+.photo_main_div{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;  
+    align-items: center;
+    justify-content: right;
+}
+.photo_sub_div{
+    width: 400px;
+    height: 400px;
+    margin-right: 15%;
 }
 .my_img{
     width: 400px;
     height: 400px;
-    display: flex;
-    float: right;
-    margin-top: 150px;
-    margin-right:250px ;
     border-radius: 50%;
     border: 3px solid rgb(219, 5, 219);
     transition: transform .3s;
@@ -22,16 +32,21 @@
 .my_img:hover{
     transform: scale(1.3);
 }
+.sub_div_main{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
 .sub_div{
     width: 500px;
     position: absolute;
-    margin-top: 200px;
-    margin-left: 200px;
+    margin-left: 15%;
 }
 .first{
-    font-size: 20px;
-    margin-top: 10px;
-    color: aliceblue;
+font-size: 20px;
+margin-top: 10px;
+color: aliceblue;
 }
 .big_heading{
     margin-top: 10px;
@@ -331,10 +346,9 @@
     padding: 0 5px;
     color: blueviolet;
 }
-@media screen and (max-width: 1361px) {
-    .my_img{
-        margin-right: 80px;
-        margin-top: 158px;
+@media screen and (max-width: 1300px) {
+    .photo_sub_div{
+        margin-right: 5%;
     }
 }
 @media screen and (max-width: 1181px) {
@@ -345,21 +359,43 @@
         margin-left: 50px;
     }
 }
+@media screen and (max-width: 1110px) {
+    .my_img{
+        width: 350px;
+        height: 350px;
+    }
+}
 @media screen and (max-width: 992px) {
     .main_div{
-        margin-top: -160px;
-        height: 800px;
         position: relative;
+        height: 130vh;
+    }
+    .photo_main_div{
+        width: 100%;
+        height: auto;
+        display: inline-block;
+    }
+    .photo_sub_div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+        height: 65vh;
     }
     .my_img{
         float: none;
+        margin-top: 17vh;
         margin-left: auto;
         margin-right: auto;
     }
+    .sub_div_main{
+        width: 100%;
+        margin-top: 380px;
+    }
     .sub_div{
         margin-left: auto;
-        margin-right: auto;
-        margin-top: auto;
+        margin-right:auto ;
         position: relative;
     }
     .our{
