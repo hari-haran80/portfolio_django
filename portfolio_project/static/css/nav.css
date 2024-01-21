@@ -146,10 +146,18 @@ body{
 /* -------whats app icon------ */
 
 .whats_app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid red;
+    border-style: inset;
+    background-color: aliceblue;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
     z-index: 150;
     position: fixed;
-    width: 50px;
-    height: 50px;
     margin-top: 85vh;
     margin-left:92% ;
 }
@@ -158,9 +166,10 @@ body{
     border-radius: 50px;
     font-size: 55px;
     font-weight: 900;
+    border: none;
 }
 .fa-whatsapp:hover{
-    color: aqua;
+    color: red;
 }
 
 /* -------end of whats app icon------ */

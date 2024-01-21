@@ -8,7 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+        img{
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -30,11 +34,14 @@
             <tr>
                 <th><label for="id_write_review">Write review:</label></th>
                 <td>
-                  <textarea name="write_review" cols="40" rows="10" maxlength="1000" required id="id_write_review"  value="{{update.write_review}}" ></textarea>
+                  <textarea name="write_review" cols="40" rows="10" maxlength="1000" required id="id_write_review" ></textarea>
                 </td>
             </tr>
             <tr>
-                <th><label for="id_profile">Profile:</label></th>
+              <th><label for="id_profile">Profile:</label></th>
+              {% if update.profile %}
+                <img src="{{ update.profile.url }}" alt="">
+              {% endif %}
                 <td>
                   <input type="file" name="profile" accept="image/*" required id="id_profile" value="{{update.profile}}">
                 </td>

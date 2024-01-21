@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/registration.css"">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Register</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    {% include 'nav.html' %}
+    <div class="registration_main_container">
+        <div class="registration_sub_container">
+            <h2>Create New account</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="names_div">
+                    <div class="first_name_div">
+                        <label for="">First name</label><br>
+                        <input type="text" placeholder="first name"  name="Fname">
+                    </div>
+                    <div class="last_name_div">
+                        <label for="">Last Name</label><br>
+                        <input type="text" placeholder="last name" name="Lname">
+                    </div>
+                </div>
+                <div class="email_div">
+                    <label for="">Email address</label><br>
+                    <input type="email" id="" placeholder="example@gmail.com" name="Email">
+                </div>
+                <div class="mobile_number_div">
+                    <label for="">Mobile Number</label><br>
+                    <input type="tel" name="Mobile">
+                </div>
+                <div class="password_div">
+                    <label for="">Password</label><br>
+                    <input type="password" placeholder="Enter Password" name="Password">
+                </div>
+                <div class="submit_button">
+                    <button type="submit" class="btn_create">Create Account</button>
+                </div>
+                <div class="already_have">
+                    <p>Already have an account? <a href="./signin.html" class="Signin_link">Sign in</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

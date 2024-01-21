@@ -454,24 +454,7 @@ h4{
     padding: 15px;
     width: 320px;
 }
-.customer_new{
-    width: 100%;
-    display: inline-block;
-}
-.customer_new:hover{
-    box-shadow: 10px 10px 9px red;
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
-}
-.customer_new:hover .small_heading{
-    background-color: rgb(255, 0, 136);
-    transform: scale(1.2);
-    transition: all 0.3s ease-in-out;
-}
-.customer.new:hover .Profile{
-    transition: all 0.3s ease-in-out;
-    transform: scale(1.2);
-}
+
 /* end of customer original review section */
 .data_div{
     margin-top: 0;
@@ -502,8 +485,8 @@ h4{
     font-weight: 900;
 }
 .customer{
-    width: 320px;
-    height: 350px;
+    width: 300px;
+    margin-bottom: 20px;
     margin-top: 50px;
     border: 1px solid black;
     box-shadow: 10px 10px 5px rgb(155, 112, 196);
@@ -544,7 +527,7 @@ h4{
 }
 .edit_review{
     position: absolute;
-    margin-left: 170px;
+    margin-left: 150px;
     text-decoration: none;
     padding: 7px;
     margin-top: -30px;
@@ -578,7 +561,7 @@ h4{
 }
 .del_buttonoriginal{
     width: 100%;
-    padding: 5px 10px;
+    padding: 5px 0px;
     background-color: aqua;
     border: none;
 }
