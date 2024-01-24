@@ -41,6 +41,7 @@ def view_image(request):
         form =ImageForms( data = request.POST, files = request.FILES)
         if form.is_valid():
             form.save()
+            return redirect('home')
     form = ImageForms()
     return render(request,'img.html',{'form':form})    
 
