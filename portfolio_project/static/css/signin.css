@@ -17,6 +17,14 @@
     padding: 15px;
     border-radius: 10px;
     background-color: aliceblue;
+    box-shadow: 10px 10px 5px rgb(190, 103, 240);
+
+}
+input{
+    box-shadow: 5px 5px 5px rgb(229, 103, 240);
+}
+input:focus{
+    outline: 2px solid rgb(229, 103, 240) ;
 }
 .sub_login_container h2{
     text-align: center;

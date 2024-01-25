@@ -12,13 +12,15 @@
     </style>
 </head>
 <body>
-    <form action="" method="post" enctype="multipart/form-data" class="form">
-        {% csrf_token %}
-        <div class="img_recieve">
-            {{ form.as_p }}
-        </div>
-        <button class="submit_button_review" type="submit">submit review</button>
-    </form>
+    <div class="form_main_div">
+        <form action="" method="post" enctype="multipart/form-data" class="form">
+            {% csrf_token %}
+            <div class="img_recieve">
+                {{ form.as_p }}
+            </div>
+            <button class="submit_button_review" type="submit">submit review</button>
+        </form>
+    </div>
     
 </body>
 </html>
