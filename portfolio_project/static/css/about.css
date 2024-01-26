@@ -109,6 +109,77 @@ color: aliceblue;
 .para2{
     margin-top: 30px;
 }
+/* service new section */
+
+.service_offers_div{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(216, 237, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub_service_offer{
+    width: 90%;
+    padding: 10px;
+}
+.service_heading{
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}
+.service_heading p{
+    margin-top: 10px;
+}
+.services_list{
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.service{
+    margin-left: 10px;
+    margin-bottom: 20px;
+    width: 220px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: black;
+    box-shadow: 10px 10px 9px violet,10px 10px 9px rgb(30, 7, 202),10px 10px 9px rgb(130, 222, 238);
+}
+.service:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+.Services_img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Img_service{
+    width: 100px;
+    height: 100px;
+}
+.Services_para{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+}
+.Services_para p{
+    font-size: 13px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+/* end of service section */
+
 .footer{
     background-image: linear-gradient(to right, white 0%,#87b2f3 5%, #79dcf8 50%, #79cf79 95%, white 100%);
     width: 100%;
@@ -137,7 +208,7 @@ color: aliceblue;
     width: 100%;
     position: relative;
     list-style: none;   
-    background-color: saddlebrown;         
+    background-color: rgb(215, 146, 252);         
 }
 .hone{
     text-align: center;
@@ -176,16 +247,17 @@ color: aliceblue;
 }
 .skill{
     width: 99%;
+    border-radius: 50px;
     margin-bottom: 50px;
     padding: 10px;
     background-color: aliceblue;
     padding: 20px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 10px 10px 10px rgb(12, 12, 12), 10px  10px 10px rgb(14, 14, 14);
     transition: transform .3s;
 }
 .skill:hover{
     transform: scale(1.05);
-    box-shadow:  14px 28px rgba(0, 0, 0, 0.25),  10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow:  14px 18px rgba(0, 0, 0, 0.25),  10px 10px rgba(0, 0, 0, 0.22);
 
 }
 .skill2, .skill3{
@@ -434,6 +506,11 @@ color: aliceblue;
         transform: scale(1.05);
     }
 }
+@media screen and (max-width: 769px) {
+    .service_heading {
+        width: 100%;
+    }
+}
 @media screen and (max-width: 608px) {
     .footer{
         display: block;
@@ -480,6 +557,9 @@ color: aliceblue;
     .sub_div{
         width: 95%;
     }           
+    .service_heading p{
+        font-size: 14px;
+    }
 }
 @media screen and (max-width: 425px) {
     .my_img{
