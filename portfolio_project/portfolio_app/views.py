@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
-from .forms import ImageForms
+from .forms import *
 
 def home(request):
     data = Img.objects.all()
@@ -24,16 +24,14 @@ def register(request):
 
 def contact(request):
     if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        text = request.POST['text']
-        obj = Contact()
-        obj.name = name
-        obj.email = email
-        obj.text = text
-        obj.save()
-        return render(request, 'contact.html',{'name': name, 'email': email, 'text':text})
-    return render(request, 'contact.html')
+        form = contact_form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contact')
+    else:
+        form = contact_form()
+
+    return render(request, 'contact.html', {'form': form})
 
 
 def view_image(request):
@@ -46,21 +44,19 @@ def view_image(request):
     return render(request,'img.html',{'form':form})    
 
 def update_review(request, id):
-    update = Img.objects.get(pk = id)
+    update = get_object_or_404(Img,pk = id)
     if request.method == 'POST':
-        name = request.POST['name']
-        position = request.POST['position']
-        write_review = request.POST['write_review']
-        update.name = name
-        update.position = position
-        update.write_review = write_review
-        update.save()
-        return redirect('home')
+        form = ImageForms(request.POST, request.FILES, instance = update)
+        if form.is_valid():
+            form.save()
+            update.save()
+            return redirect('home')
     return render(request, 'update.html',{'update':update})
 
 def delete_review(request, id):
-    data = Img.objects.get(pk = id)
-    data.delete()
+    instance = get_object_or_404(Img, pk =id)
+    instance.profile.delete(save = True)
+    instance.delete()
     return redirect('home')
 
 
