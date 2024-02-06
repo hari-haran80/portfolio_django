@@ -24,4 +24,5 @@ urlpatterns = [
     path('del_data/<int:id>', views.delete_review, name='delete data'),
     path('register.html', views.register_new, name='new registration'),
     path('signin.html', views.Login_new, name='new login'),
+    path('logout', views.logout_user, name='logout'),
 ]

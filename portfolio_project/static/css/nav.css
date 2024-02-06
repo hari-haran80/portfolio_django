@@ -57,13 +57,13 @@ body{
 .name{    
     display: flex;
 }
-.subscribe{
-    padding: 10px 15px;
+.logout_login{
     background: aliceblue;
     color: black;
     font-size: 16px;
-    font-weight: 800;
-    border-radius: 50px;
+    width: 100px;
+    font-weight: 700;
+    border-radius: 25px;
 }
 
 .link{
@@ -118,10 +118,8 @@ body{
     transition: all 0.4s;
     border-radius: 10px;
 }
-.subscribe:hover{
-    border-top-right-radius:0px;
-    border-bottom-left-radius:0px;
-    background:red;
+.logout_login:hover{
+    background-color:rgb(133, 255, 210);
     color:white;
     transition: all 0.2s;
 }

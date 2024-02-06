@@ -17,27 +17,40 @@
             <h2>Create New account</h2>
             <form action="" method="POST">
                 {% csrf_token %}
+                <div class="Username_div">
+                    <label for="">User Name:</label><br>
+                    <input type="text" id="" name="username"  required>
+                </div>
                 <div class="names_div">
                     <div class="first_name_div">
                         <label for="">First name</label><br>
-                        <input type="text" placeholder="first name"  name="Fname" required>
+                        <input type="text" placeholder="first name"  name="First_name" required>
                     </div>
                     <div class="last_name_div">
                         <label for="">Last Name</label><br>
-                        <input type="text" placeholder="last name" name="Lname"  required>
+                        <input type="text" placeholder="last name" name="Last_name"  required>
                     </div>
                 </div>
                 <div class="email_div">
-                    <label for="">Email address</label><br>
-                    <input type="email" id="" placeholder="example@gmail.com" name="Email"  required>
+                    <label for="">Email address:</label><br>
+                    <input type="email" id="" placeholder="example@gmail.com" name="email"  required>
                 </div>
-                <div class="mobile_number_div">
+                <!-- <div class="mobile_number_div">
                     <label for="">Mobile Number</label><br>
                     <input type="tel" name="Mobile" required>
-                </div>
+                </div> -->
                 <div class="password_div">
-                    <label for="">Password</label><br>
-                    <input type="password" placeholder="Enter Password" name="Password"  required>
+                    <label for="">Enter Password:</label><br>
+                    <input type="password" placeholder="Enter your Password" name="Password1"  required><br> <br>
+                    <label for="">Confirm Password:</label><br>
+                    <input type="password" placeholder="Re-Enter your Password" name="Password2"  required>
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="message_div" id="myMessage">
+                            <p>{{message}}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="submit_button">
                     <button type="submit" class="btn_create">Create Account</button>
@@ -48,5 +61,17 @@
             </form>
         </div>
     </div>
+    <script>
+        var messageDiv = document.getElementById('myMessage');
+    
+        function hideMessage() {
+            messageDiv.style.opacity = 0;
+            setTimeout(function () {
+                messageDiv.style.display = 'none';
+            }, 500);
+        }
+    
+        setTimeout(hideMessage, 3000);
+    </script>
 </body>
 </html>

@@ -17,6 +17,7 @@
     border-bottom: 1px solid gray;
 }
 .registration_sub_container{
+    margin-top: 5vh;
     background-color: aliceblue;
     width: 310px;
     border-radius: 10px;
@@ -24,11 +25,33 @@
     padding: 10px;
     box-shadow: 10px 10px 5px rgb(190, 103, 240);
 }
+.message_div{
+    background-color: rgb(255, 74, 74);
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    margin-top: 10px;
+    transition: opacity 0.5s ease;
+}
+.message_div p{
+    width: 100%;
+    text-align: center;
+}
 input{
     box-shadow: 5px 5px 5px rgb(229, 103, 240);
 }
 input:focus{
     outline: 2px solid rgb(229, 103, 240) ;
+}
+.Username_div{
+    margin-top: 10px;
+}
+.Username_div input{
+    margin-top: 10px;
+    width: 95%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid gray;
 }
 .names_div{
     display: flex;
@@ -68,7 +91,7 @@ input:focus{
     border-radius: 5px;
     border-bottom: 1px solid gray;
 }
-.mobile_number_div{
+/* .mobile_number_div{
     width: 100%;
     margin-top: 10px;
 }
@@ -78,7 +101,7 @@ input:focus{
     margin-top: 10px;
     border-radius: 5px;
     border-bottom: 1px solid gray;
-}
+} */
 .password_div{
     width: 100%;
     margin-top: 10px;
@@ -91,7 +114,7 @@ input:focus{
     border-bottom: 1px solid gray;
 }
 .submit_button{
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100%;
     border-bottom: 1px solid black;
 }

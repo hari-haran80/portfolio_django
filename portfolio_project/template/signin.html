@@ -14,15 +14,23 @@
     {% include 'nav.html' %}
     <div class="main_login_container">
         <div class="sub_login_container">
-            <form action="">
+            <form action="" method="POST" >
+                {% csrf_token %}
+                {% if messages %}
+                    {% for x in messages %}
+                        <div class="message_div" id="myMessage">
+                            <p>{{x}}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 <h2>Sign In</h2>
                 <div class="Email_div_login">
-                    <label for="">E-Mail</label><br>
-                    <input type="email" name="" id="" placeholder="Enter Your Email" required>
+                    <label for="">User Name:</label><br>
+                    <input type="text" name="username" id="" placeholder="User Name" required>
                 </div>
                 <div class="Password_login_div">
-                    <label for="">Password</label><br>
-                    <input type="password" name="" id="" placeholder="Enter Your Password" required>
+                    <label for="">Password:</label><br>
+                    <input type="password" name="password" id="" placeholder="Enter Your Password" required>
                 </div>
                 <div class="Login_button_div">
                     <button type="submit">Submit</button>
@@ -34,5 +42,17 @@
             </form>
         </div>
     </div>
+    <script>
+        var messageDiv = document.getElementById('myMessage');
+    
+        function hideMessage() {
+            messageDiv.style.opacity = 0;
+            setTimeout(function () {
+                messageDiv.style.display = 'none';
+            }, 500);
+        }
+    
+        setTimeout(hideMessage, 3000);
+    </script>
 </body>
 </html>

@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import *
+from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login as auth_login, logout
+# from django.contrib.auth.decorators import login_required
 
 def home(request):
     data = Img.objects.all()
@@ -33,7 +37,9 @@ def contact(request):
 
     return render(request, 'contact.html', {'form': form})
 
+#-------------- Review section --------------
 
+# @login_required
 def view_image(request):
     if request.method == 'POST':
         form =ImageForms( data = request.POST, files = request.FILES)
@@ -60,22 +66,56 @@ def delete_review(request, id):
     return redirect('home')
 
 
-def Login_new(request):
-    return render(request, 'signin.html')
+# ---------------- Create User Account --------------------------
 
 def register_new(request):
     if request.method == 'POST':
-        Fname = request.POST['Fname']
-        Lname = request.POST['Lname']
-        Email = request.POST['Email']
-        Password = request.POST['Password']
-        Mobile = request.POST['Mobile']
-        data1 = Register()
-        data1.Fname = Fname
-        data1.Lname = Lname
-        data1.Email = Email
-        data1.Password = Password
-        data1.Mobile = Mobile
-        data1.save()
-        return redirect('signin.html')
+        username = request.POST['username']
+        First_name = request.POST['First_name']
+        Last_name = request.POST['Last_name']
+        email = request.POST['email']
+        Password1 = request.POST['Password1']
+        Password2 = request.POST['Password2']
+        
+        if Password1 == Password2:
+            data1 = User.objects.create_user(
+            username=username,
+            first_name=First_name,
+            last_name=Last_name,
+            email=email,
+            password=Password1
+        )
+            data1.is_staff = True
+            data1.save()
+            data1.set_password(Password1)
+            messages.success(request, 'account has created successfully')
+            return redirect('signin.html')
+            
+        else:
+            messages.error(request, 'password do not match')
+            return render(request, 'register.html')
+       
+    
     return render(request, 'register.html')
+
+# ------------------- LogIn section ----------------------
+def Login_new(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username = username, password = password)
+
+        if user is not None:
+            auth_login (request, user)
+            return redirect('home')
+        
+        else:
+            messages.error(request, 'enter correct username and password')
+            return render(request, 'signin.html')
+        
+    return render(request, 'signin.html')
+
+# ------------------- LogOut section --------------------
+def logout_user(request):
+    logout(request)
+    return redirect('signin.html')

@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    {% include 'nav.html' %}
+    <!-- {% include 'nav.html' %} -->
     <header class="header">
         <i><h1 class="fname own" style="letter-spacing: 0.3rem;" >Hari <span style="color: rgb(255, 238, 0); margin-left:10px; letter-spacing: 0.3rem;" > Haran</span></h1></i>
         <nav class="navigation">
@@ -38,11 +38,14 @@
                 </li>
                 <li class="name"><a href="./about.html" class="link" >About</a></li>
                 <li class="name"><a href="./contact.html" class="link" >Contact</a></li>
-                <button class="subscribe" >subscribe</button>
+                <button class="logout_login" > <a href="logout" style="text-decoration: none; color:black;">logout</a></button>
             </ul>
             <span onclick="toggle()"><i class="fa-solid fa-bars" id="menu-icon"></i></span>
         </nav>
     </header>
+    <div class="whats_app">
+        <a class="fa-brands fa-whatsapp" title="Chat with me" href="https://wa.me/+971522322584"></a>
+    </div>
     <div class="home_div" >
         <div class="img_div">
             <img src="../static/images/bh1.png" id="home">
