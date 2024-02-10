@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/profile.css">
+    <link rel="stylesheet" href="../static/css/update_profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>update profile</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    {% include 'nav.html' %}
+    <div class="banner_div">
+        <img src="../static/images/banner.jpg" alt="" class="banner_image">
+    </div>
+    <div class="main_container">
+        <div class="sub_container">
+            <div class="details_div">
+                <form action="" method="POST" class="form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h2 class="welcome_heading">Welcome Back !!!</h2>
+                    <button class="back_button"><a href="profile"><i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a></button>
+                    <div class="details">
+                        <div class="firstname inner">
+                            <label for="fname">First Name :</label><br>
+                            <input type="text" placeholder=""  class="inputs" name="first_name" value="{{user.first_name}}">
+                        </div>
+                        <div class="lastname inner">
+                            <label for="lname">Last Name :</label><br>
+                            <input type="text" placeholder=""  class="inputs" name="last_name" value="{{user.last_name}}">
+                        </div>
+                        <div class="Gender_div inner">
+                            <label for="">Gender:</label><br>
+                            <select name="gender" id=""  class="inputs">
+                                <option value="select">select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="mobile_div inner">
+                            <label for="">Mobile Number :</label><br>
+                            <input type="tel" placeholder=""  class="inputs" name="number" value="{{data.mobile}}">
+                        </div>
+                        <div class="email_div inner">
+                            <label for="">Email :</label><br>
+                            <input type="email" placeholder=""  class="inputs" name="email" value="{{user.email}}"><br>
+                        </div>
+                        <div class="user_name inner">
+                            <label for="">User name :</label><br>
+                            <input type="text" placeholder=""  class="inputs" name="password" value="{{user.username}}">
+                        </div>
+                        <div class="position_div inner">
+                            <label for="">Position :</label><br>
+                            <input type="text" placeholder=""  class="inputs" name="password" value="{{profile.position}}">
+                        </div>
+                        <div class="image_div inner">
+                            <label for="fileInput">Update Image : </label>
+                            <input type="file" placeholder=""  class="inputs" name="fileInput">
+                        </div>
+                        <div class="button_edit">
+                            <button type="submit" class="Update_button1">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

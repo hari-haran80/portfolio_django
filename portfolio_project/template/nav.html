@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        
+    </style>
 </head>
 <body>
     <header class="header">
@@ -32,7 +35,14 @@
                 </li>
                 <li class="name"><a href="./about.html" class="link" >About</a></li>
                 <li class="name"><a href="./contact.html" class="link" >Contact</a></li>
-                <button class="logout_login" > <a href="logout" style="text-decoration: none; color:black;">LogOut</a></button>
+                
+                {% if user.is_authenticated %}
+                    <button class="logout_login" > <a href="logout" style="text-decoration: none; color:black;">logout</a></button>
+                    <a href="profile" class="profile_link" title="profile"><i class="fa-regular fa-user"></i></a>
+                {% else %}
+                    <button class="logout_login" > <a href="./signin.html" style="text-decoration: none; color:black;">login</a></button>
+                {% endif %}
+            
             </ul>
             <span onclick="toggle()"><i class="fa-solid fa-bars" id="menu-icon"></i></span>
         </nav>

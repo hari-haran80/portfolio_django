@@ -65,7 +65,17 @@ body{
     font-weight: 700;
     border-radius: 25px;
 }
-
+.fa-user{
+    background-color: whitesmoke;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+    margin-left: 10px;
+    font-weight:900;
+}
+.profile_link{
+    color: black;
+}
 .link{
     text-decoration: none;
     color: black;
@@ -204,7 +214,7 @@ body{
         margin-left: 290px;
         margin-top: -100px;
     }
-    .subscribe{
+    .logout_login{
         font-size: 35px;
         padding:10px 20px ;
     }
@@ -227,7 +237,7 @@ body{
         height: 12%;
         justify-content: center;
     }
-    .subscribe{
+    .logout_login{
         padding: 15px;
         color: black;
         border: 3px solid red;
@@ -281,7 +291,7 @@ body{
     .link{
         font-size: 15px;
     }
-    .subscribe{
+    .logout_login{
         font-size: 15px;
         padding: 10px;
     }
@@ -295,7 +305,7 @@ body{
         font-size: 15px;
         padding: 10px 15px;
     }
-    .subscribe{
+    .logout_login{
         font-size: 15px;
     }
     

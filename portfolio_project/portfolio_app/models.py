@@ -27,6 +27,7 @@ class Contact(models.Model):
     
     
 class Img(models.Model):
+
     name = models.CharField(max_length = 50)
     position = models.CharField(max_length =50)
     write_review = models.TextField(max_length =1000)
@@ -34,3 +35,18 @@ class Img(models.Model):
     
     def __str__(self):
         return self.name.upper()
+    
+    
+class profile(models.Model):
+    
+    Gender_choice = [
+        ('Male','Male'),
+        ('Female', 'Female'),
+    ]
+    
+    position = models.CharField(max_length = 50)
+    profile = models.ImageField(upload_to="images", max_length = 100)
+    gender = models.CharField(choices = Gender_choice, max_length = 6)
+    mobile = models.IntegerField(null = False, blank = False)
+    
+    
