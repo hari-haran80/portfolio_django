@@ -67,6 +67,19 @@ input:focus{
     border: none;
     border-bottom: 1px solid gray;
 }
+.forget_link{
+    position: absolute;
+    margin-top: -17px;
+    margin-left: -120px;
+    text-decoration: none;
+}
+#eyeicon{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    margin-top: 14px;
+    margin-left: -30px;
+}
 .Login_button_div{
     margin-top: 20px;
     width: 100%;

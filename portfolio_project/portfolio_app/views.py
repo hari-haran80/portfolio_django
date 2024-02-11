@@ -3,7 +3,7 @@ from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as auth_login, logout
+from django.contrib.auth import authenticate, login as auth_login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
 
 def home(request):
@@ -164,4 +164,26 @@ def logout_user(request):
     logout(request)
 
     return redirect('signin.html')
+
+# ----------------- Forget Password ----------------------
+
+def reset_password(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        try:
+            user = get_user_model().objects.get(username =username)
+        
+        except:
+            messages.warning(request,'User does not exist!')
+            return render (request, 'forget.html')
+        
+        user.set_password(password)
+        user.save()
+        
+        messages.success(request, 'password reset successfully')
+        return redirect('new login')  
+          
+    return render (request, 'forget.html')
 
