@@ -117,10 +117,10 @@ def register_new(request):
 # ----------- user profile ----------------------
 
 @login_required(login_url='signin.html')
-def User_profile(request):
-    user1 = profile.objects.all()
-    user = User.objects.all()
-    return render(request, 'profile.html',{'data':user, 'data1':user1})
+def User_profile(request, id):
+    user = User_data.objects.get(user_id_id = id)
+        
+    return render(request, 'profile.html',{'user' : user})
 
 # ---------- update user profile ------------------------
 
@@ -163,7 +163,7 @@ def Login_new(request):
 def logout_user(request):
     logout(request)
 
-    return redirect('signin.html')
+    return redirect('signin')
 
 # ----------------- Forget Password ----------------------
 
@@ -183,7 +183,7 @@ def reset_password(request):
         user.save()
         
         messages.success(request, 'password reset successfully')
-        return redirect('new login')  
+        return redirect('signin')  
           
     return render (request, 'forget.html')
 

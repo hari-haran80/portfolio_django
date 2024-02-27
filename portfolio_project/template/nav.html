@@ -16,31 +16,31 @@
         <i><h1 class="fname own" style="letter-spacing: 0.3rem;" >Hari <span style="color: rgb(255, 238, 0); margin-left:10px; letter-spacing: 0.3rem;" > Haran</span></h1></i>
         <nav class="navigation">
             <ul class="head_nav">
-                <li class="name"><a href="home" class="link" >Home</a></li>
+                <li class="name"><a href="/home" class="link" >Home</a></li>
                 <li class="name" id="drowpdown">
                     <a class="link" id="width" >Projects<i class="fa-solid fa-angle-down"></i></a>
                     <ul class="projects" >
                         <li class="inline_name"><a href="#" class="inline_link">Photo Galary</a></li>
-                        <li class="inline_name"><a href="cards" class="inline_link">Cards</a></li>
+                        <li class="inline_name"><a href="/cards" class="inline_link">Cards</a></li>
                         <li class="inline_name">
                             <a href="#" class="inline_link">Forms<i class="fa-solid fa-angle-down"></i></a>
                             <ul class="sub_ul" id="sub_id">
-                                <li class="sub_li"><a href="login" class="sub_link" target="_blank">Login Form</a></li>
-                                <li class="sub_li"><a href="register" class="sub_link" target="_blank">Create New Acc</a></li>
-                                <li class="sub_li"><a href="cis" class="sub_link" target="_blank">Cts Form</a></li>
+                                <li class="sub_li"><a href="/login" class="sub_link" target="_blank">Login Form</a></li>
+                                <li class="sub_li"><a href="/register" class="sub_link" target="_blank">Create New Acc</a></li>
+                                <li class="sub_li"><a href="/cis" class="sub_link" target="_blank">Cts Form</a></li>
                             </ul>
-                            <li class="inline_name"><a href="home" class="inline_link" target="_blank">Portfolio</a></li>
+                            <li class="inline_name"><a href="/home" class="inline_link" target="_blank">Portfolio</a></li>
                         </li>
                     </ul>
                 </li>
-                <li class="name"><a href="about" class="link" >About</a></li>
-                <li class="name"><a href="contact" class="link" >Contact</a></li>
+                <li class="name"><a href="/about" class="link" >About</a></li>
+                <li class="name"><a href="/contact" class="link" >Contact</a></li>
                 
                 {% if user.is_authenticated %}
-                    <button class="logout_login" > <a href="logout" style="text-decoration: none; color:black;">logout</a></button>
-                    <a href="profile" class="profile_link" title="profile"><i class="fa-regular fa-user"></i></a>
+                    <button class="logout_login"> <a href="/logout" style="text-decoration: none; color:black;" class="Button_Link">logout</a></button>
+                    <a href="/profile/{{user.id}}" class="profile_link" title="profile"><i class="fa-regular fa-user"></i></a>
                 {% else %}
-                    <button class="logout_login" > <a href="signin" style="text-decoration: none; color:black;">login</a></button>
+                    <button class="logout_login" > <a href="/signin" style="text-decoration: none; color:black;" class="Button_Link">login</a></button>
                 {% endif %}
             
             </ul>

@@ -12,8 +12,6 @@
     </style>
 </head>
 <body>
-    {% for x in data %}
-    {% for y in data1 %}
     {% include 'nav.html' %}
     <div class="main_container">
         <div class="sub_container">
@@ -22,46 +20,46 @@
             </div>
             <div class="profile_image_div">
                 <div class="image_div">
-                    <img src="{{y.profile}}" class="profile_image" alt="">
+                    <img src="{{user.profile.url}}" class="profile_image" alt="">
                     <a href=""><i class="fa-solid fa-camera"></i></a>
                 </div>
-                <h1>{{x.username}}</h1>
-                <h3>{{y.position}}</h3>
+                <h1>{{user.user_id.username}}</h1>
+                <h3>{{user.position}}</h3>
                 <div class="button_edit" style="width:100%;">
                     <a href="profile_update">Edit Profile</a>
                 </div>
             </div>
             <div class="details_div">
                 <form action="" method="POST" class="form">
-                    <h2 class="welcome_heading">Welcome Back {{x.first_name}} !!!</h2>
+                    <h2 class="welcome_heading">Welcome Back {{user.user_id.first_name}} !!!</h2>
                     <div class="details">
                         <div class="firstname inner">
                             <label for="fname">First Name :</label><br>
-                            <input type="text" placeholder="{{x.first_name}}" disabled class="inputs" name="first_name">
+                            <input type="text" placeholder="{{user.user_id.first_name}}" disabled class="inputs" name="first_name">
                         </div>
                         <div class="lastname inner">
                             <label for="lname">Last Name :</label><br>
-                            <input type="text" placeholder="{{x.last_name}}" disabled class="inputs" name="last_name">
+                            <input type="text" placeholder="{{user.user_id.last_name}}" disabled class="inputs" name="last_name">
                         </div>
                         <div class="Gender_div inner">
                             <label for="">Gender:</label><br>
                             <select name="gender" id="" disabled class="inputs">
-                                <option value="select">{{y.gender}}</option>
-                                <option value="male" selected>{{y.gender}}</option>
-                                <option value="female">{{y.gender}}</option>
+                                <option value="select">{{user.gender}}</option>
+                                <option value="male" selected>{{user.gender}}</option>
+                                <option value="female">{{user.gender}}</option>
                             </select>
                         </div>
                         <div class="mobile_div inner">
                             <label for="">Mobile Number :</label><br>
-                            <input type="tel" placeholder="{{y.mobile}}" disabled class="inputs" name="number">
+                            <input type="tel" placeholder="{{user.mobile}}" disabled class="inputs" name="number">
                         </div>
                         <div class="email_div inner">
                             <label for="">Email :</label><br>
-                            <input type="email" placeholder="{{x.email}}" disabled class="inputs" name="email">
+                            <input type="email" placeholder="{{user.user_id.email}}" disabled class="inputs" name="email">
                         </div>
                         <div class="user_name inner">
                             <label for="">User name :</label><br>
-                            <input type="text" placeholder="{{x.username}}" disabled class="inputs" name="password">
+                            <input type="text" placeholder="{{user.user_id.username}}" disabled class="inputs" name="password">
                         </div>
                         <div class="button_edit">
                             <a href="profile_update">Edit Profile</a>
@@ -71,7 +69,12 @@
             </div>
         </div>
     </div>
-    {% endfor %}
-    {% endfor %}
+    <script>
+        var button = document.querySelector(".Button_Link");
+        button.innerHTML = "logout";
+        button.setAttribute ("href", "/logout")
+        
+
+    </script>
 </body>
 </html>

@@ -37,17 +37,18 @@ class Img(models.Model):
     def __str__(self):
         return self.name.upper()
     
-    
-class profile(models.Model):
+class User_data(models.Model):
     
     Gender_choice = [
         ('Male','Male'),
         ('Female', 'Female'),
     ]
-    
+     
+    user_id  = models.OneToOneField(User,on_delete = models.CASCADE)
     position = models.CharField(max_length = 50)
     profile = models.ImageField(upload_to="images", max_length = 100)
     gender = models.CharField(choices = Gender_choice, max_length = 6)
     mobile = models.IntegerField(null = False, blank = False)
     
-    
+    def __str__(self):
+        return  str(self.user_id.username)

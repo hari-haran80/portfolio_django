@@ -3,4 +3,4 @@ from .models import *
 
 admin.site.register(Contact)
 admin.site.register(Img)
-admin.site.register(profile)
+admin.site.register(User_data)
