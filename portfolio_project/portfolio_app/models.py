@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+# from phonenumber_field.modelfields import PhoneNumberField
 
 class Contact(models.Model):
     
@@ -29,26 +30,44 @@ class Contact(models.Model):
     
 class Img(models.Model):
 
-    name = models.CharField(max_length = 50)
-    position = models.CharField(max_length =50)
-    write_review = models.TextField(max_length =1000)
-    profile = models.ImageField(upload_to="images", max_length = 100)
+    name = models.CharField(max_length = 50, default = '')
+    position = models.CharField(max_length =50,default = '')
+    write_review = models.TextField(max_length =1000,default = '')
+    profile = models.ImageField(upload_to="images", max_length = 100,default = '')
     
     def __str__(self):
         return self.name.upper()
     
-class User_data(models.Model):
     
-    Gender_choice = [
+class User_file(models.Model):
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
+    
+    def __str__(self):
+        return  str(self.user.username)
+    
+    
+class user_info(models.Model):
+    pro = models.OneToOneField(User_file, on_delete = models.CASCADE)
+    review = models.CharField(max_length = 2000)
+    
+    def __str__(self):
+        return  str(self.pro.user.username)
+    
+
+class user_about(models.Model):
+    
+    Gender_choices = [
         ('Male','Male'),
         ('Female', 'Female'),
     ]
      
-    user_id  = models.OneToOneField(User,on_delete = models.CASCADE)
-    position = models.CharField(max_length = 50)
-    profile = models.ImageField(upload_to="images", max_length = 100)
-    gender = models.CharField(choices = Gender_choice, max_length = 6)
-    mobile = models.IntegerField(null = False, blank = False)
+    pro  = models.OneToOneField(User_file,on_delete = models.CASCADE)
+    position1 = models.CharField(max_length = 50)
+    profile1 = models.ImageField(upload_to="images", max_length = 100)
+    gender1 = models.CharField(choices = Gender_choices, max_length = 6)
+    mobile1 = models.IntegerField(null = False, blank = False)
+    
     
     def __str__(self):
-        return  str(self.user_id.username)
+        return  str(self.pro.user.username)
+    

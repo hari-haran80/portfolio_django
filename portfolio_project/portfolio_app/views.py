@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 def home(request):
     data = Img.objects.all()
@@ -104,7 +105,7 @@ def register_new(request):
             data1.save()
             data1.set_password(Password1)
             messages.success(request, 'account has created successfully')
-            return redirect('signin.html')
+            return redirect('/signin')
             
         else:
             messages.error(request, 'password do not match')
@@ -118,26 +119,40 @@ def register_new(request):
 
 @login_required(login_url='signin.html')
 def User_profile(request, id):
-    user = User_data.objects.get(user_id_id = id)
+    
+    user = user_about.objects.get(pro_id = id)
+    user1 = user.pro 
+    
+    context = {
         
-    return render(request, 'profile.html',{'user' : user})
+        'user_datas' : user, 
+        'user1':user1
+        
+    }
+    
+    return render(request, 'profile.html', context)
 
 # ---------- update user profile ------------------------
 
-# @login_required(login_url='signin.html')
-# def update_profile1(request):
+def update_profile(request, id):
     
-#     if request.method == 'POST':
-#         user = User(request.POST)
-#         user.save()    
-#         return render (request, 'update_profile.html',{})    
-
-#     return render(request,'update_profile.html',{})
-
-
-def update_profile2(request):
-            
-    return render(request, 'update_profile.html')
+    update = user_about.objects.get(pro_id = id)
+    
+    if request.method =="POST":
+        update.profile1 = request.FILES['profile1']
+        update.gender1 = request.POST['gender1']
+        update.mobile1 = request.POST['mobile1']
+        update.position1 = request.POST['position1']
+        update.pro.user.username = request.POST['username']
+        update.pro.user.first_name = request.POST['first_name']
+        update.pro.user.last_name = request.POST['last_name']
+        update.pro.user.email = request.POST['email']
+        update.pro.user.save()
+        update.save()
+        
+        return redirect(reverse('profile', kwargs={'id': id}))
+    
+    return render(request, 'update_profile.html',{'update':update})
         
 # ------------------- LogIn section ----------------------
 def Login_new(request):

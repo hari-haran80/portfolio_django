@@ -14,10 +14,10 @@ urlpatterns = [
     path('Write_review', views.view_image, name='Write_review'),
     path('update_data/<int:id>', views.update_review, name='update data'),
     path('del_data/<int:id>', views.delete_review, name='delete data'),
-    path('register', views.register_new, name='new_registration'),
+    path('new_registration', views.register_new, name='new_registration'),
     path('signin', views.Login_new, name='signin'),
     path('logout', views.logout_user, name='logout'),
     path('profile/<int:id>', views.User_profile, name='profile'),
-    path('profile_update', views.update_profile2, name='profile_update'),
+    path('profile_update/<int:id>', views.update_profile, name='profile_update'),
     path('forget_password', views.reset_password, name='forget_password'),
 ]

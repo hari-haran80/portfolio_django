@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio_app',
     'livereload',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
