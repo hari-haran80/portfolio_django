@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-# from phonenumber_field.modelfields import PhoneNumberField
+from phonenumber_field.modelfields import PhoneNumberField
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
+from django.templatetags.static import static
 
 class Contact(models.Model):
     
@@ -28,46 +30,26 @@ class Contact(models.Model):
         return self.name.upper()
     
     
-class Img(models.Model):
+class UserProfile(models.Model):
+    Gender_choices = [
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+    ]
 
-    name = models.CharField(max_length = 50, default = '')
-    position = models.CharField(max_length =50,default = '')
-    write_review = models.TextField(max_length =1000,default = '')
-    profile = models.ImageField(upload_to="images", max_length = 100,default = '')
-    
+    pro = models.OneToOneField(User, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    position = models.CharField(max_length=50, default="Select Profession", null=True, blank=True)
+    profile = models.ImageField(upload_to="images", max_length=100, default=static("images/profileimage.png"), null=True, blank=True)
+    gender = models.CharField(choices=Gender_choices, max_length=6, default=None, null=True, blank=True)
+    mobile = PhoneNumberField(null=False, blank=False, default='+91')
+
     def __str__(self):
-        return self.name.upper()
+        return str(self.pro.username)
     
     
-class User_file(models.Model):
-    user = models.OneToOneField(User, on_delete = models.CASCADE)
+class UserReview(models.Model):
     
-    def __str__(self):
-        return  str(self.user.username)
-    
-    
-class user_info(models.Model):
-    pro = models.OneToOneField(User_file, on_delete = models.CASCADE)
+    profile_name = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     review = models.CharField(max_length = 2000)
     
     def __str__(self):
-        return  str(self.pro.user.username)
-    
-
-class user_about(models.Model):
-    
-    Gender_choices = [
-        ('Male','Male'),
-        ('Female', 'Female'),
-    ]
-     
-    pro  = models.OneToOneField(User_file,on_delete = models.CASCADE)
-    position1 = models.CharField(max_length = 50)
-    profile1 = models.ImageField(upload_to="images", max_length = 100)
-    gender1 = models.CharField(choices = Gender_choices, max_length = 6)
-    mobile1 = models.IntegerField(null = False, blank = False)
-    
-    
-    def __str__(self):
-        return  str(self.pro.user.username)
-    
+        return str(self.profile_name.pro.username)+"'s Review"

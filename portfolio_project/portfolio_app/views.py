@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import *
 from .forms import *
 from django.contrib import messages
@@ -7,26 +7,68 @@ from django.contrib.auth import authenticate, login as auth_login, logout, get_u
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 
-def home(request):
-    data = Img.objects.all()
-    return render(request, 'index.html',{'image':data})
 
+@login_required(login_url='signin')
+def home(request):
+    data = UserReview.objects.all()
+    profile = UserProfile.objects.all()
+    if request.method == 'POST':
+        form =ImageForms(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    form = ImageForms()
+    return render(request, 'index.html',{'image':data,'form':form,'profile':profile})
+
+# def nav(request):
+#     profile = UserProfile.objects.all()
+#     return render(request, 'nav.html',{'profile':profile})
+
+# @login_required(login_url='signin')
+# def home(request):
+#     data = UserReview.objects.all()
+#     profile = request.user.userprofile
+#     default_profile_name = request.user.id
+
+#     try:
+#         existing_review = UserReview.objects.get(profile_name=profile)
+#     except UserReview.DoesNotExist:
+#         existing_review = None
+
+#     if request.method == 'POST':
+#         form = ImageForms(request.POST, request.FILES, instance=existing_review)
+#         if form.is_valid():
+#             review_instance = form.save(commit=False)
+#             review_instance.profile_name = profile
+#             review_instance.save()
+
+#             return redirect('home')
+#     else:
+#         form = ImageForms(instance=existing_review,initial={'profile_name': default_profile_name})
+
+@login_required(login_url='signin')
 def about(request):
     return render(request, 'about.html')
 
+@login_required(login_url='signin')
 def cards(request):
     return render(request, 'cards.html')
 
+@login_required(login_url='signin')
 def cis(request):
     return render(request, 'cis.html')
 
+@login_required(login_url='signin')
 def login(request):
     return render(request, 'login form.html')
 
+@login_required(login_url='signin')
 def register(request):
     return render(request, 'new account.html')
 
 
+@login_required(login_url='signin')
 def contact(request):
 
     if request.method == 'POST':
@@ -41,41 +83,28 @@ def contact(request):
 
     return render(request, 'contact.html', {'form': form})
 
-#-------------- Review section --------------
+# ------------- Review Section ----------------
 
-@login_required(login_url='signin.html')
-def view_image(request):
-
-    if request.method == 'POST':
-        form =ImageForms( data = request.POST, files = request.FILES)
-
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    form = ImageForms()
-
-    return render(request,'img.html',{'form':form})    
-
-@login_required(login_url='signin.html')
+@login_required(login_url='signin')
 def update_review(request, id):
-    update = get_object_or_404(Img,pk = id)
+    
+    reviews = UserReview.objects.get(pk = id)
+    
+    if request.method == "POST":
+    
+        reviews.review = request.POST['review']
+        reviews.save()
+    
+        response = HttpResponse('<script>window.parent.closeAndUpdate();</script>')
+        return response
+    
+    return render (request, 'Review_update.html',{'reviews':reviews})
 
-    if request.method == 'POST':
-        form = ImageForms(request.POST, request.FILES, instance = update)
 
-        if form.is_valid():
-            form.save()
-            update.save()
-            return redirect('home')
-
-    return render(request, 'update.html',{'update':update})
-
-
-@login_required(login_url='signin.html')
+@login_required(login_url='signin')
 def delete_review(request, id):
 
-    instance = get_object_or_404(Img, pk =id)
-    instance.profile.delete(save = True)
+    instance = get_object_or_404(UserReview, pk =id)
     instance.delete()
 
     return redirect('home')
@@ -104,8 +133,7 @@ def register_new(request):
             data1.is_staff = True
             data1.save()
             data1.set_password(Password1)
-            messages.success(request, 'account has created successfully')
-            return redirect('/signin')
+            return redirect('/AddProfile')
             
         else:
             messages.error(request, 'password do not match')
@@ -120,7 +148,7 @@ def register_new(request):
 @login_required(login_url='signin.html')
 def User_profile(request, id):
     
-    user = user_about.objects.get(pro_id = id)
+    user = UserProfile.objects.get(pro_id = id)
     user1 = user.pro 
     
     context = {
@@ -132,22 +160,43 @@ def User_profile(request, id):
     
     return render(request, 'profile.html', context)
 
+
+def AddProfile(request):
+    if request.method == 'POST':
+        form = AddProfileForm(data = request.POST, files = request.FILES)
+        if form.is_valid():
+            user_profile = form.save(commit=False)
+            user_profile.save()
+            messages.success(request, 'account has created successfully')
+            return redirect('/signin')
+        
+        else:
+            messages.error(request, 'password do not match')
+            return render(request,"addProfile.html")
+    else:
+        form = AddProfileForm()
+        
+    return render(request, 'addProfile.html', {'form': form})
+
+
+
 # ---------- update user profile ------------------------
 
+@login_required(login_url='signin')
 def update_profile(request, id):
     
-    update = user_about.objects.get(pro_id = id)
+    update = UserProfile.objects.get(pro_id = id)
     
     if request.method =="POST":
-        update.profile1 = request.FILES['profile1']
-        update.gender1 = request.POST['gender1']
-        update.mobile1 = request.POST['mobile1']
-        update.position1 = request.POST['position1']
-        update.pro.user.username = request.POST['username']
-        update.pro.user.first_name = request.POST['first_name']
-        update.pro.user.last_name = request.POST['last_name']
-        update.pro.user.email = request.POST['email']
-        update.pro.user.save()
+        update.profile = request.FILES['profile']
+        update.gender = request.POST['gender']
+        update.mobile = request.POST['mobile']
+        update.position = request.POST['position']
+        update.pro.username = request.POST['username']
+        update.pro.first_name = request.POST['first_name']
+        update.pro.last_name = request.POST['last_name']
+        update.pro.email = request.POST['email']
+        update.pro.save()
         update.save()
         
         return redirect(reverse('profile', kwargs={'id': id}))
@@ -202,3 +251,8 @@ def reset_password(request):
           
     return render (request, 'forget.html')
 
+
+# def dummy (request):
+#     reviews = UserReview.objects.all()
+#     data = UserReview.objects.all()
+#     return render(request, 'dummy.html',{'reviews': reviews,'image':data})

@@ -35,15 +35,15 @@
                         </div>
                         <div class="Gender_div inner">
                             <label for="">Gender:</label><br>
-                            <select name="gender1" id="" class="inputs">
-                                <option value="select" {% if update.gender1 == "select" %} selected {% endif %}>select</option>
-                                <option value="Male" {% if update.gender1 == "Male" %} selected {% endif %}>Male</option>
-                                <option value="Female" {% if update.gender1 == "Female" %} selected {% endif %}>Female</option>
+                            <select name="gender" id="" class="inputs">
+                                <option value="select" {% if update.gender == "select" %} selected {% endif %}>select</option>
+                                <option value="Male" {% if update.gender == "Male" %} selected {% endif %}>Male</option>
+                                <option value="Female" {% if update.gender == "Female" %} selected {% endif %}>Female</option>
                             </select>                               
                         </div>
                         <div class="mobile_div inner">
                             <label for="">Mobile Number :</label><br>
-                            <input type="tel" placeholder=""  class="inputs" name="mobile1" value="{{update.mobile1}}">
+                            <input type="tel" placeholder=""  class="inputs" name="mobile" value="{{update.mobile}}">
                         </div>
                         <div class="email_div inner">
                             <label for="">Email :</label><br>
@@ -55,11 +55,11 @@
                         </div>
                         <div class="position_div inner">
                             <label for="">Position :</label><br>
-                            <input type="text" placeholder=""  class="inputs" name="position1" value="{{update.position1}}">
+                            <input type="text" placeholder=""  class="inputs" name="position" value="{{update.position}}">
                         </div>
                         <div class="image_div inner">
                             <label for="fileInput">Update Image : </label>
-                            <input type="file" placeholder=""  class="inputs" name="profile1" value="{{update.profile1}}">
+                            <input type="file" placeholder=""  class="inputs" name="profile" value="{{update.profile}}">
                         </div>
                         <div class="button_edit">
                             <button type="submit" class="Update_button1">Submit</button>

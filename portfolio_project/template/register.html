@@ -35,10 +35,6 @@
                     <label for="">Email address:</label><br>
                     <input type="email" id="" placeholder="example@gmail.com" name="email"  required>
                 </div>
-                <!-- <div class="mobile_number_div">
-                    <label for="">Mobile Number</label><br>
-                    <input type="tel" name="Mobile" required>
-                </div> -->
                 <div class="password_div">
                     <label for="">Enter Password:</label><br>
                     <input type="password" placeholder="Enter your Password" name="Password1"  required><br> <br>
@@ -56,22 +52,11 @@
                     <button type="submit" class="btn_create">Create Account</button>
                 </div>
                 <div class="already_have">
-                    <p>Already have an account? <a href="new_login" class="Signin_link">Sign in</a></p>
+                    <p>Already have an account? <a href="signin" class="Signin_link">Sign in</a></p>
                 </div>
             </form>
         </div>
     </div>
-    <script>
-        var messageDiv = document.getElementById('myMessage');
-    
-        function hideMessage() {
-            messageDiv.style.opacity = 0;
-            setTimeout(function () {
-                messageDiv.style.display = 'none';
-            }, 500);
-        }
-    
-        setTimeout(hideMessage, 3000);
-    </script>
+    <script src="../static/js/register.js"></script>
 </body>
 </html>

@@ -1,11 +1,14 @@
 from django import forms
-from .models import Contact, Img, user_about
+from .models import Contact, UserProfile, UserReview
 from django.contrib.auth.models import User
 
 class ImageForms(forms.ModelForm):
     class Meta:
-        model = Img
+        model = UserReview
         fields = "__all__"
+        widgets = {
+            'review': forms.Textarea(attrs={'rows': 7, 'cols': 36}),
+        }
         
         
 class contact_form(forms.ModelForm):
@@ -20,8 +23,8 @@ class update_profile_form(forms.ModelForm):
         model = User
         fields =  ["username", "email", " first_name","last_name"]
         
-
-class UserAboutForm(forms.ModelForm):
+        
+class AddProfileForm(forms.ModelForm):
     class Meta:
-        model = user_about
-        fields = "__all__"
+        model = UserProfile
+        fields = ["pro","position","gender","mobile"]

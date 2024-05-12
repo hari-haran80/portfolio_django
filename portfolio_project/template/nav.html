@@ -8,7 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+        .IfImg{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -38,32 +43,20 @@
                 
                 {% if user.is_authenticated %}
                     <button class="logout_login"> <a href="/logout" style="text-decoration: none; color:black;" class="Button_Link">logout</a></button>
-                    <a href="/profile/{{user.id}}" class="profile_link" title="profile"><i class="fa-regular fa-user"></i></a>
                 {% else %}
                     <button class="logout_login" > <a href="/signin" style="text-decoration: none; color:black;" class="Button_Link">login</a></button>
                 {% endif %}
+                <li class="name">
+                    <a href="/profile/{{ user.id }}"><img src="{{ image_url }}" class="IfImg" title="Profile" alt="Profile Image"></a>
+                </li>
             
             </ul>
             <span onclick="toggle()"><i class="fa-solid fa-bars" id="menu-icon"></i></span>
         </nav>
     </header>
     <div class="whats_app">
-        <a class="fa-brands fa-whatsapp" title="Chat with me" href="https://wa.me/+971522322584"></a>
+        <a class="fa-brands fa-whatsapp" style="color: #0ed85b;" title="Chat with me" href="https://wa.me/+971522322584"></a>
     </div>
-    <script>
-        var toggled = false;
-        function toggle(){
-            if(!toggled){
-                toggled = true;
-                document.querySelector('.head_nav').style.left = "0px";
-                return;
-            }
-            if(toggled){
-                toggled = false;
-                document.querySelector(".head_nav").style.left = "-60%";
-                return;
-            }
-        }
-    </script>
+    <script src="../static/js/index.js"></script>
 </body>
 </html>
