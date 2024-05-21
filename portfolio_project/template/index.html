@@ -136,9 +136,9 @@
     <!-- Added Write Command Section -->
     
     <div class="form_main_div">
-        <i class="fa-solid fa-xmark" onclick="CloseReview()"></i>
         <div class="blackscreen"></div>
         <form action="" method="post" enctype="multipart/form-data" class="form">
+            <i class="fa-solid fa-xmark" onclick="CloseReview()"></i>
             {% csrf_token %}
             <div class="img_recieve">
                 {{ form.as_p }}

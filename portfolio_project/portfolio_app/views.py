@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 @login_required(login_url='signin')
@@ -67,6 +69,7 @@ def login(request):
 def register(request):
     return render(request, 'new account.html')
 
+# ----------------- Contact Form section ---------------------- 
 
 @login_required(login_url='signin')
 def contact(request):
@@ -76,12 +79,32 @@ def contact(request):
 
         if form.is_valid():
             form.save()
+            
+            email = form.cleaned_data['email']
+            message = "Thanks for reaching out! We've received your message and will get back to you shortly"
+            send_mail(
+                'Contact Form Submission',
+                message,
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False
+            )
+            messages.success(request, "Your message has been sent successfully! We'll be in touch soon. !!!.")
             return redirect('contact')
 
     else:
         form = contact_form()
 
     return render(request, 'contact.html', {'form': form})
+
+def view_contact(request):
+    contact = Contact.objects.all()
+    return render(request, 'admincontact.html',{'contact':contact})
+
+def delete_contact(id):
+    instance = get_object_or_404(Contact, pk =id)
+    instance.delete()
+    return redirect('view_contact')
 
 # ------------- Review Section ----------------
 

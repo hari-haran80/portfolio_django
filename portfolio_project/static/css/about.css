@@ -44,13 +44,30 @@
     margin-left: 15%;
 }
 .first{
-font-size: 20px;
-margin-top: 10px;
-color: aliceblue;
+    font-size: 20px;
+    margin-top: 10px;
+    color: aliceblue;
 }
 .big_heading{
     margin-top: 10px;
     color: aliceblue;
+    width: 12ch;
+    white-space: nowrap;
+    border-right: 1px solid white;
+    overflow: hidden;
+    font-family: monospace;
+    animation: typing 3s steps(12),
+    blink 0.5s step-end infinite alternate ;
+}
+@keyframes typing{
+    from{
+        width: 0;
+    }
+}
+@keyframes blink{
+    50%{
+        border-color: transparent;
+    }
 }
 .para{
     margin-top: 10px;

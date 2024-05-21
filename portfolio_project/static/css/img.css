@@ -14,17 +14,16 @@
     background-color: grey;
 }
 .fa-xmark{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    position: fixed;
-    right: 60px;
-    top: 60px;
-    font-size: 35px;
-    width: 45px;
-    height: 45px;
-    border-radius: 15px;
+    display: grid;
+    align-items: center;
+    position: relative;
+    left: 250px;
+    top: -15px;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     background-color:orange ;
 }
 .form_main_div{

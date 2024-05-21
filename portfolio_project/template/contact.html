@@ -19,6 +19,11 @@
         data-aos-anchor="#example-anchor"
         data-aos-offset="500"
         data-aos-duration="500">
+        {% if user.is_superuser %}
+            <div class="viewcontact">
+                <a href="view_contact" class="ViewBtn">View Submited Forms</a>
+            </div>
+        {% endif %}
             <h1>Let's find solutions <span> together?</span></h1>
             <h4>| Contact</h4>
             <p class="para1">Fill in the form or just use my contacts below if you need to put a project on the move, let's work on it!</p>
@@ -28,6 +33,13 @@
         data-aos-anchor="#example-anchor"
         data-aos-offset="500"
         data-aos-duration="500">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
             <form action="" method="POST">
                 {% csrf_token %}
                 <div class="one name_div">
@@ -66,8 +78,18 @@
         </div>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init();
-  </script>
+    <script>
+        AOS.init();
+
+        function HideMessage(){
+            var AlertMessage = document.querySelector('.alert')
+            if (AlertMessage){
+                setTimeout(function(){
+                    AlertMessage.style.display = 'none'
+                }, 3000);
+            }
+        }
+        window.onload = HideMessage;
+    </script>
 </body>
 </html>

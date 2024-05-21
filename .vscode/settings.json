@@ -15,5 +15,6 @@
             "password": "Hariharan80$",
             "database": "myDataBase"
         }
-    ]
+    ],
+    "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

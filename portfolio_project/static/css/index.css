@@ -405,6 +405,7 @@
 }
 .start{    
     padding: 15px 20px;
+    border-radius: 10px;
 }
 .para{
     margin-left: 20px;
@@ -512,6 +513,7 @@ h4{
     border: 1px solid black;
     box-shadow: 10px 10px 5px rgb(155, 112, 196);
     padding: 15px;
+    border-radius: 15px;
 }
 .customer, .customer2, .customer3{
     margin-left: 2.5%;
@@ -523,12 +525,8 @@ h4{
 }
 .customer:hover .small_heading{
     background-color: rgb(255, 0, 136);
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: all 0.3s ease-in-out;
-}
-.customer:hover .Profile{
-    transition: all 0.3s ease-in-out;
-    transform: scale(1.2);
 }
 .small_heading{
     width: 25px;
@@ -585,6 +583,7 @@ h4{
     padding: 5px 0px;
     background-color: aqua;
     border: none;
+    border-radius: 15px;
 }
 .del_review{
     text-decoration: none;
@@ -651,6 +650,9 @@ h4{
     text-decoration: none;
     color: whitesmoke;
 }
+.contact:hover{
+    color: black;
+}
 .contact_btn{
     border: 3px solid Red;
     margin-top: 100px;
@@ -669,9 +671,11 @@ footer{
     font-size: 12px;
 }
 button:hover{
-    background:red;
-    color:white;
-    transition: all 1s;
+    background:linear-gradient(45deg, #ee82ee, #add8e6);
+    color:black;
+}
+button:hover .contact{
+    color: black;
 }
 .link:hover, .last_link:hover{
     color:red;

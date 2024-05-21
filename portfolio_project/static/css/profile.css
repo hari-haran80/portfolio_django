@@ -26,6 +26,7 @@
     border-radius: 10px;
     background-color: aliceblue;
     border: 1px solid black;
+    box-shadow: 8px 8px 15px #aaa, -8px -8px 15px #fff;
 }
 .image_div{
     margin-left: auto;
@@ -79,6 +80,7 @@
     display: flex;
     justify-content: center;
     padding: 5px;
+    box-shadow: 8px 8px 15px #aaa, -8px -8px 15px #fff;
 }
 .form{
     width: 95%;
