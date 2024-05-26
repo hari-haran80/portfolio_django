@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view Gallery</title>
+    <link rel="stylesheet" href="../static/css/galary.css">
+    <style>
+        .BackButton{
+            position: absolute;
+            text-decoration: none;
+            padding: 10px 30px;
+            background-color: red;
+            margin-top: -30px;
+            margin-left: 250px;
+            color: black;
+            font-weight: 700;
+            border-radius: 15px;
+            border: 1px solid rgb(255, 166, 0);
+        }   
+        .BackButton:hover{
+            background-color: rgb(255, 166, 0);
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body> 
+    {% include 'nav.html' %}   
+    <div class="main_Container">
+        <div class="Sub_container">
+            <br>
+            <div class="heading">
+                <h1>Gallery</h1>
+                <!-- <a class="BackButton" href="/gallery">Back</a> -->
+            </div>  
+            <div class="galary">
+                {% for x in images %}
+                    <img class="images" title="{{x.name}}" src="{{x.image.url}}" alt="{{x.name}}">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

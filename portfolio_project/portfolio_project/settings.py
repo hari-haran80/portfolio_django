@@ -126,6 +126,9 @@ STATICFILES_DIRS = [
 IMAGE_URL ='/images/'
 IMAGE_ROOT = os.path.join(BASE_DIR, 'images/')
 
+GALLERY_URL = '/Galary/'
+GALLERY_ROOT = os.path.join(BASE_DIR, 'Galary/')
+
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]

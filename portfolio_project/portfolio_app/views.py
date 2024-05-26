@@ -279,3 +279,18 @@ def reset_password(request):
 #     reviews = UserReview.objects.all()
 #     data = UserReview.objects.all()
 #     return render(request, 'dummy.html',{'reviews': reviews,'image':data})
+
+
+def galary(request):
+    
+    category = GalleryCategory.objects.all()
+    return render(request, 'galary.html',{'category':category})
+
+def Galaryview(request, name):
+
+    images = Category.objects.filter(gallery_category__name=name)    
+    context = {
+        'images': images,
+    }
+    
+    return render(request, 'viewImage.html', context)

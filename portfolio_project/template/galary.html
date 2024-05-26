@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/galary.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Gallery</title>
+</head>
+<body>
+    {% include 'nav.html' %}
+    <div class="slider_mainDiv">
+        <div class="slider">
+            <div class="arrows">
+                <i class="fa-solid fa-angle-left" id="previous"></i>
+                <i class="fa-solid fa-chevron-right" id="next"></i>
+            </div>
+            <div class="slider-items active">
+                <img src="../static/images2/flower 1.jpg" class="ImageSlider" alt="slider-1">
+            </div>
+            <div class="slider-items">
+                <img src="../static/images2/flower 2.jpg" class="ImageSlider" alt="slider-2">
+            </div>
+            <div class="slider-items">
+                <img src="../static/images2/flower 3.jpg" class="ImageSlider" alt="slider-3">
+            </div>
+            <div class="slider-items">
+                <img src="../static/images2/flower 4.jpg" class="ImageSlider" alt="slider-4">
+            </div>
+            <div class="slider-items">
+                <img src="../static/images2/flower 5.jpg" class="ImageSlider" alt="slider-5">
+            </div>
+            <div class="dots">
+                
+            </div>
+        </div>
+    </div>
+    <div class="CategoryDiv">
+        <h1 class="GalaryH1">Gallery Category's</h1>
+        <div class="category">
+            {% for x in category %}
+            <a href="/gallery/{{ x.name }}">
+                <div class="ImagesDiv">
+                    <h2 class="CategoryName">{{x.name}}</h2>
+                    <img src="{{x.image.url}}" alt="" class="CategoryImages">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="../static/js/galary.js"></script>
+    </html>

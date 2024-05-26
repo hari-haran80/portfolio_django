@@ -25,5 +25,6 @@ urlpatterns = [
     path('update/<int:id>/', views.update_review, name='update_review'),
     # path('dummy', views.dummy, name='dummy'),
     # path('nav', views.nav, name='nav'),
-    
+    path('gallery', views.galary, name = 'gallery'),
+    path('gallery/<str:name>', views.Galaryview, name = 'galary'),
 ]
