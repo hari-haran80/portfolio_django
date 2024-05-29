@@ -15,39 +15,22 @@ def home(request):
     data = UserReview.objects.all()
     profile = UserProfile.objects.all()
     if request.method == 'POST':
-        form =ImageForms(request.POST)
+        form =ImageForms(request.POST, user=request.user)
 
         if form.is_valid():
             form.save()
             return redirect('home')
-    form = ImageForms()
-    return render(request, 'index.html',{'image':data,'form':form,'profile':profile})
+    else:
+        form = ImageForms(user=request.user)
 
-# def nav(request):
-#     profile = UserProfile.objects.all()
-#     return render(request, 'nav.html',{'profile':profile})
+    context = {
+        'image':data, 
+        'form':form,
+        'profile':profile
+    }
+    
+    return render(request, 'index.html',context)
 
-# @login_required(login_url='signin')
-# def home(request):
-#     data = UserReview.objects.all()
-#     profile = request.user.userprofile
-#     default_profile_name = request.user.id
-
-#     try:
-#         existing_review = UserReview.objects.get(profile_name=profile)
-#     except UserReview.DoesNotExist:
-#         existing_review = None
-
-#     if request.method == 'POST':
-#         form = ImageForms(request.POST, request.FILES, instance=existing_review)
-#         if form.is_valid():
-#             review_instance = form.save(commit=False)
-#             review_instance.profile_name = profile
-#             review_instance.save()
-
-#             return redirect('home')
-#     else:
-#         form = ImageForms(instance=existing_review,initial={'profile_name': default_profile_name})
 
 @login_required(login_url='signin')
 def about(request):
@@ -156,7 +139,7 @@ def register_new(request):
             data1.is_staff = True
             data1.save()
             data1.set_password(Password1)
-            return redirect('/AddProfile')
+            return redirect('/signin')
             
         else:
             messages.error(request, 'password do not match')
@@ -183,26 +166,6 @@ def User_profile(request, id):
     
     return render(request, 'profile.html', context)
 
-
-def AddProfile(request):
-    if request.method == 'POST':
-        form = AddProfileForm(data = request.POST, files = request.FILES)
-        if form.is_valid():
-            user_profile = form.save(commit=False)
-            user_profile.save()
-            messages.success(request, 'account has created successfully')
-            return redirect('/signin')
-        
-        else:
-            messages.error(request, 'password do not match')
-            return render(request,"addProfile.html")
-    else:
-        form = AddProfileForm()
-        
-    return render(request, 'addProfile.html', {'form': form})
-
-
-
 # ---------- update user profile ------------------------
 
 @login_required(login_url='signin')
@@ -227,6 +190,7 @@ def update_profile(request, id):
     return render(request, 'update_profile.html',{'update':update})
         
 # ------------------- LogIn section ----------------------
+
 def Login_new(request):
 
     if request.method == 'POST':
@@ -274,12 +238,7 @@ def reset_password(request):
           
     return render (request, 'forget.html')
 
-
-# def dummy (request):
-#     reviews = UserReview.objects.all()
-#     data = UserReview.objects.all()
-#     return render(request, 'dummy.html',{'reviews': reviews,'image':data})
-
+# ******************** Galary Views Section ***********************
 
 def galary(request):
     
@@ -294,3 +253,35 @@ def Galaryview(request, name):
     }
     
     return render(request, 'viewImage.html', context)
+
+
+# ********************* Other Unwanted Views Section *********************
+
+
+# def AddProfile(request):
+#     if request.method == 'POST':
+#         form = AddProfileForm(data = request.POST, files = request.FILES)
+#         if form.is_valid():
+#             user_profile = form.save(commit=False)
+#             user_profile.save()
+#             messages.success(request, 'account has created successfully')
+#             return redirect('/signin')
+        
+#         else:
+#             messages.error(request, 'password do not match')
+#             return render(request,"addProfile.html")
+#     else:
+#         form = AddProfileForm()
+        
+#     return render(request, 'addProfile.html', {'form': form})
+
+
+# def dummy (request):
+#     reviews = UserReview.objects.all()
+#     data = UserReview.objects.all()
+#     return render(request, 'dummy.html',{'reviews': reviews,'image':data})
+
+
+# def nav(request):
+#     profile = UserProfile.objects.all()
+#     return render(request, 'nav.html',{'profile':profile})

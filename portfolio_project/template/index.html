@@ -99,7 +99,7 @@
     </div>
     <div class="two" >
         <p class="para1" data-aos="fade-down-right">Hey, There! I'm a "Passionate Python Full Stack Developer", Transforming Ideas into Seamless Web Solutions, Expertise in Django, HTML, CSS, and More...</p>
-        <button class="btn2" data-aos="fade-down-right"><a href="about" class="link2">More About Me</a></button>
+        <button class="btn2" data-aos="fade-down-right"><a href="about" class="link2"><i class="fa-solid fa-info"></i> More About Me</a></button>
     </div>
     <div class="skills_container">
         <div class="heading_expert" data-aos="fade-down">
@@ -166,7 +166,6 @@
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
-                    <a href="" class="edit_review">Edit review</a>
                     <div class="star_img_div">
                         <img src="../static/images/4.5star.png" alt="" class="star_img">
                     </div>
@@ -180,9 +179,6 @@
                             <p>GM of Stark Technologies</p>  
                         </div>
                     </div>
-                    <div class="del_button">
-                        <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
-                    </div>
                 </div>
             </div>
             <div data-aos="fade-down-right" data-aos-duration="500">
@@ -190,7 +186,6 @@
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
-                    <a href="" class="edit_review">Edit review</a>
                     <div class="star_img_div">
                         <img src="../static/images/4star-removebg-preview.png" alt="" class="star_img">
                     </div>
@@ -204,9 +199,6 @@
                             <p>CEO of Body Building</p>  
                         </div>
                     </div>
-                    <div class="del_button">
-                        <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
-                    </div>
                 </div>
             </div>
             <div data-aos="fade-down-right" data-aos-duration="1000">
@@ -214,7 +206,6 @@
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
-                    <a href="" class="edit_review">Edit review</a>
                     <div class="star_img_div">
                         <img src="../static/images/5sta.png" alt="" class="star_img">
                     </div>
@@ -228,9 +219,6 @@
                             <p>General Manager in Gimnastic</p>  
                         </div>
                     </div>
-                    <div class="del_button">
-                        <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
-                    </div>
                 </div>
             </div>
             <div data-aos="fade-down-right" data-aos-duration="1500">
@@ -238,7 +226,6 @@
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
-                    <a href="" class="edit_review">Edit review</a>
                     <div class="star_img_div">
                         <img src="../static/images/5sta.png" alt="" class="star_img">
                     </div>
@@ -252,9 +239,6 @@
                             <p>Founder of Shield</p>  
                         </div>
                     </div>
-                    <div class="del_button">
-                        <button type="button" class="del_buttonoriginal"><a href="#" class="del_review">Delete Review</a></button>
-                    </div>
                 </div>
             </div>
             {% for x in image %}
@@ -263,7 +247,9 @@
                     <div class="small_heading">
                         <h1>❝</h1>
                     </div>
-                    <a class="edit_review" style="cursor: pointer;" onclick="showFrame('{{x.id}}')">Edit review</a>
+                    {% if user.username == x.profile_name.pro.username or user.is_superuser %}
+                        <a class="edit_review" style="cursor: pointer;" onclick="showFrame('{{x.id}}')"><i class="fa-solid fa-pencil"></i> Edit review</a>
+                    {% endif %}
                     <div class="star_img_div">
                         <img src="../static/images/5sta.png" alt="" class="star_img">
                     </div>
@@ -278,7 +264,9 @@
                         </div>
                     </div>
                     <div class="del_button">
-                        <button type="button" class="del_buttonoriginal"><a href="del_data/{{x.id}}" class="del_review">Delete Review</a></button>
+                        {% if user.username == x.profile_name.pro.username or user.is_superuser %}
+                            <button type="button" class="del_buttonoriginal"><a href="del_data/{{x.id}}" class="del_review"><i class="fa-solid fa-trash"></i> Delete Review</a></button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -291,17 +279,17 @@
         <div class="div_one" data-aos="fade-down-right">
             <h1>Let's design Something <span style="color: red;">together?</span></h1>
             <div class="center">
-                <button class="contact_btn"><a href="contact" class="contact">Contact Me</a></button>
+                <button class="contact_btn"><a href="contact" class="contact"><i class="fa-solid fa-address-book"></i> Contact Me</a></button>
             </div>
         </div>
         <div class="div_two" data-aos="fade-down-right">
             <h1>You can find me on <span style="color: yellowgreen;"> social media </span>:</h1>
             <ul class="last_ul">
-                <li data-aos="fade-down-right" data-aos-duration="300"><a href="https://www.linkedin.com/in/hari-haran-8281351a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="last_link">Linkedin</a></li>
-                <li data-aos="fade-down-right" data-aos-duration="600"><a href="https://github.com/hari-haran80" target="_blank" class="last_link">Git Hub</a></li>
-                <li data-aos="fade-down-right" data-aos-duration="900"><a href="https://www.instagram.com/heart_stoler_hari?igsh=MTU2bzg3YnR0dHQ2ZA==" target="_blank" class="last_link">Instagram</a></li>
-                <li data-aos="fade-down-right" data-aos-duration="1200"><a href="https://www.facebook.com/profile.php?id=100009078732441&mibextid=ZbWKwL" target="_blank" class="last_link">Facebook</a></li>
-                <li data-aos="fade-down-right" data-aos-duration="1500"><a href="mailto:hariharan.a69@gmail.com" class="last_link">Gmail</a></li>
+                <li data-aos="fade-down-right" data-aos-duration="300"><a href="https://www.linkedin.com/in/hari-haran-8281351a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="last_link"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
+                <li data-aos="fade-down-right" data-aos-duration="600"><a href="https://github.com/hari-haran80" target="_blank" class="last_link"><i class="fa-brands fa-github"></i> Git Hub</a></li>
+                <li data-aos="fade-down-right" data-aos-duration="900"><a href="https://www.instagram.com/heart_stoler_hari?igsh=MTU2bzg3YnR0dHQ2ZA==" target="_blank" class="last_link"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                <li data-aos="fade-down-right" data-aos-duration="1200"><a href="https://www.facebook.com/profile.php?id=100009078732441&mibextid=ZbWKwL" target="_blank" class="last_link"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                <li data-aos="fade-down-right" data-aos-duration="1500"><a href="mailto:hariharan.a69@gmail.com" class="last_link"><i class="fa-solid fa-envelope"></i> Gmail</a></li>
                 <div class="hari" data-aos="fade-down-right">
                     <img src="../static/images/wa.jpeg" alt="" class="image">
                 </div>

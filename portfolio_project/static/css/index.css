@@ -546,7 +546,7 @@ h4{
 }
 .edit_review{
     position: absolute;
-    margin-left: 150px;
+    margin-left: 130px;
     text-decoration: none;
     padding: 7px;
     margin-top: -30px;
@@ -589,7 +589,7 @@ h4{
     text-decoration: none;
     color: black;
     font-weight: 900;
-    padding: 5px 73px;
+    padding: 5px 60px;
 }
 .Profile{
     filter: brightness(120%);
