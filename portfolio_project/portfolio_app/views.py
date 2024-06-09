@@ -14,18 +14,28 @@ from django.conf import settings
 def home(request):
     data = UserReview.objects.all()
     profile = UserProfile.objects.all()
+    
+    # Write Review Section
+    
     if request.method == 'POST':
-        form =ImageForms(request.POST, user=request.user)
-
-        if form.is_valid():
-            form.save()
+        rating = request.POST.get('rating')
+        review_text = request.POST.get('review')
+        
+        profile = UserProfile.objects.get(pro=request.user)
+        
+        if UserReview.objects.filter(profile_name=profile).exists():
+            messages.error(request, 'You have already submitted a review.')
+        else:
+            UserReview.objects.create(
+                profile_name=profile,
+                rating=rating,
+                review=review_text
+            )
+            messages.success(request, 'Your review has been submitted successfully.')
             return redirect('home')
-    else:
-        form = ImageForms(user=request.user)
 
     context = {
-        'image':data, 
-        'form':form,
+        'image':data,
         'profile':profile
     }
     
@@ -84,7 +94,7 @@ def view_contact(request):
     contact = Contact.objects.all()
     return render(request, 'admincontact.html',{'contact':contact})
 
-def delete_contact(id):
+def delete_contact(request,id):
     instance = get_object_or_404(Contact, pk =id)
     instance.delete()
     return redirect('view_contact')
@@ -98,10 +108,12 @@ def update_review(request, id):
     
     if request.method == "POST":
     
+        reviews.rating = request.POST['rating']
         reviews.review = request.POST['review']
         reviews.save()
     
         response = HttpResponse('<script>window.parent.closeAndUpdate();</script>')
+        messages.success(request, 'Your review Updated successfully.')
         return response
     
     return render (request, 'Review_update.html',{'reviews':reviews})
@@ -113,6 +125,7 @@ def delete_review(request, id):
     instance = get_object_or_404(UserReview, pk =id)
     instance.delete()
 
+    messages.success(request, 'Your review Deleted successfully.')
     return redirect('home')
 
 
@@ -139,6 +152,10 @@ def register_new(request):
             data1.is_staff = True
             data1.save()
             data1.set_password(Password1)
+            
+            messages.success(request, 'Account Created Successfully!!')
+            request.session['username'] = data1.username
+            
             return redirect('/signin')
             
         else:
@@ -153,6 +170,10 @@ def register_new(request):
 
 @login_required(login_url='signin.html')
 def User_profile(request, id):
+    
+    currentUser = request.user.id
+    if currentUser != id:
+        return render(request, 'access.html')
     
     user = UserProfile.objects.get(pro_id = id)
     user1 = user.pro 
@@ -171,6 +192,10 @@ def User_profile(request, id):
 @login_required(login_url='signin')
 def update_profile(request, id):
     
+    currentUser = request.user.id
+    if currentUser != id:
+        return render(request, 'access.html')
+    
     update = UserProfile.objects.get(pro_id = id)
     
     if request.method =="POST":
@@ -185,6 +210,7 @@ def update_profile(request, id):
         update.pro.save()
         update.save()
         
+        messages.success(request, 'Profile Updated Successfully')
         return redirect(reverse('profile', kwargs={'id': id}))
     
     return render(request, 'update_profile.html',{'update':update})
@@ -200,6 +226,7 @@ def Login_new(request):
 
         if user is not None:
             auth_login (request, user)
+            messages.success(request, 'Welcome Back '+ user.first_name)
             return redirect('home')
         
         else:
@@ -214,6 +241,8 @@ def Login_new(request):
 def logout_user(request):
     logout(request)
 
+    messages.success(request, 'We hope to see you again soon! 😊')
+    request.session.flush()
     return redirect('signin')
 
 # ----------------- Forget Password ----------------------
@@ -254,34 +283,10 @@ def Galaryview(request, name):
     
     return render(request, 'viewImage.html', context)
 
+# ******************** Access and Error Section ***********************
 
-# ********************* Other Unwanted Views Section *********************
+def Denied(request):
+    return render(request, 'access.html')
 
-
-# def AddProfile(request):
-#     if request.method == 'POST':
-#         form = AddProfileForm(data = request.POST, files = request.FILES)
-#         if form.is_valid():
-#             user_profile = form.save(commit=False)
-#             user_profile.save()
-#             messages.success(request, 'account has created successfully')
-#             return redirect('/signin')
-        
-#         else:
-#             messages.error(request, 'password do not match')
-#             return render(request,"addProfile.html")
-#     else:
-#         form = AddProfileForm()
-        
-#     return render(request, 'addProfile.html', {'form': form})
-
-
-# def dummy (request):
-#     reviews = UserReview.objects.all()
-#     data = UserReview.objects.all()
-#     return render(request, 'dummy.html',{'reviews': reviews,'image':data})
-
-
-# def nav(request):
-#     profile = UserProfile.objects.all()
-#     return render(request, 'nav.html',{'profile':profile})
+def custom_page_not_found(request, exception):
+    return render(request, 'error.html', status=404)

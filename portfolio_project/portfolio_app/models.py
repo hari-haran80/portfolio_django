@@ -57,6 +57,7 @@ class UserProfile(models.Model):
 class UserReview(models.Model):
     
     profile_name = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
+    rating = models.IntegerField(default = 0)
     review = models.CharField(max_length = 2000)
     
     def __str__(self):

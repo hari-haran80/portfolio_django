@@ -77,6 +77,35 @@ button:hover{
     border-radius: 15px;
     box-shadow: 10px 10px 5px rgb(190, 103, 240);
 }
+.rating > input {
+    display: none;
+}
+.rating > label::before {
+    content: '\f005';
+    font-family: FontAwesome;
+    margin: 5px;
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+}
+.rating > label {
+    margin-top: 10px;
+    float: right;
+    color: grey;
+}
+.rating{
+    width: 320px;
+    margin-left: -50px;
+}
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+.color{
+    color: gold;
+    margin-top: 5px;
+}
 textarea{
     box-shadow: 10px 10px 5px rgb(190, 103, 240);
     margin-bottom: 20px;

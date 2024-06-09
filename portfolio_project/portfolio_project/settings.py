@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s4+ln#$stxrake#m0gx(n2#b@%o01kgf!eysfsrxk*krt%htr6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # EMAIL HOST SETTING
 
@@ -26,6 +26,14 @@ EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# Session settings
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_AGE = 1209600
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False 
+SESSION_SAVE_EVERY_REQUEST = False
 
 # Application definition
 

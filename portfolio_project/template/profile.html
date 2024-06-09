@@ -15,6 +15,15 @@
     {% include 'nav.html' %}
     <div class="main_container">
         <div class="sub_container">
+            <div class="message_div">
+                {% if messages %}
+                    {% for x in messages %}
+                        <div class="message" id="myMessage">
+                            {{x}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
             <div class="banner_div">
                 <img src="../static/images/banner.jpg" alt="" class="banner_image">
             </div>
@@ -25,9 +34,6 @@
                 </div>
                 <h1>{{user1.username}}</h1>
                 <h3>{{user_datas.position}}</h3>
-                <div class="button_edit" style="width:100%;">
-                    <a href="/profile_update/{{user.id}}">Edit Profile</a>
-                </div>
             </div>
             <div class="details_div">
                 <form action="" method="POST" class="form">
@@ -70,4 +76,5 @@
         </div>
     </div>
 </body>
+    <script src="../static/js/message.js"></script>
 </html>

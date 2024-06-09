@@ -12,7 +12,7 @@
     align-items: center;
 }
 .sub_login_container{
-    width: 300px;
+    width: 310px;
     border: 1px solid gray;
     padding: 15px;
     border-radius: 10px;
@@ -27,8 +27,12 @@
     text-align: center;
     transition: opacity 0.5s ease;
 }
-.message_div p{
+.MessagePara{
     width: 100%;
+    color: whitesmoke;
+    background-color: rgb(243, 60, 60);
+    border-radius: 10px;
+    padding: 5px;
     text-align: center;
 }
 input{
@@ -46,12 +50,19 @@ input:focus{
     width: 100%;
     margin-top: 15px;
 }
+.Email_div_login:hover .fa-user{
+    color: black;
+    transition: all 0.5s linear;
+}
+.Email_div_login:focus-within .fa-user {
+    color: black;
+}
 .Email_div_login input{
     width: 100%;
     border-radius: 5px;
     border: 1px solid gray;
     margin-top: 10px;
-    padding: 5px 10px;
+    padding: 5px 30px;
     border: none;
     border-bottom: 1px solid gray;
 }
@@ -59,10 +70,32 @@ input:focus{
     margin-top: 15px;
     width: 100%;
 }
+.Password_login_div:hover .fa-lock{
+    color: black;
+    transition: all 0.5s linear;
+}
+.Password_login_div:focus-within .fa-lock {
+    color: black;
+}
+.fa-solid {
+    position: absolute;
+    margin-top: 10px;
+    border-right: 2px solid grey;
+    color: gray;
+    padding: 5px;
+}
+.fa-arrow-left{
+    margin-top: 5px;
+}
+.fa-arrow-left:hover{
+    border-right: 2px solid black;
+    color: black;
+    transition: all 0.5s linear;
+}
 .Password_login_div input{
     margin-top: 10px;
     width: 100%;
-    padding: 5px 10px;
+    padding: 5px 30px;
     border-radius: 5px;
     border: none;
     border-bottom: 1px solid gray;
@@ -107,6 +140,13 @@ input:focus{
     padding: 10px 5px;
     margin-bottom: 10px;
     font-size: 14px;
+}
+.New_account_div p{
+    text-align: center;
+}
+#passwordError{
+    font-size: 15px;
+    text-align: center;
 }
 .New_account_div p a{
     text-decoration: none;

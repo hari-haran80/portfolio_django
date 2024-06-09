@@ -37,7 +37,22 @@
     width: 100%;
     text-align: center;
 }
+#eyeicon{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    margin-top: 14px;
+    margin-left: -30px;
+}
+.fa-solid{
+    position: absolute;
+    margin-top: 10px;
+    padding: 5px;
+    border-right: 2px solid grey;
+    color: grey;
+}
 input{
+    padding: 5px 30px;
     box-shadow: 5px 5px 5px rgb(229, 103, 240);
 }
 input:focus{
@@ -49,9 +64,15 @@ input:focus{
 .Username_div input{
     margin-top: 10px;
     width: 95%;
-    padding: 5px 10px;
     border-radius: 5px;
     border-bottom: 1px solid gray;
+}
+.Username_div:hover .fa-user{
+    color: black;
+    transition: all 0.5s linear;
+}
+.Username_div:focus-within .fa-user {
+    color: black;
 }
 .names_div{
     display: flex;
@@ -65,9 +86,15 @@ input:focus{
 .first_name_div input{
     margin-top: 10px;
     width: 95%;
-    padding: 5px 10px;
     border-radius: 5px;
     border-bottom: 1px solid gray;
+}
+.first_name_div:hover .fa-user{
+    color: black;
+    transition: all 0.5s linear;
+}
+.first_name_div:focus-within .fa-user {
+    color: black;
 }
 .last_name_div{
     width: 100%;
@@ -87,9 +114,15 @@ input:focus{
     border-radius: 5px;
     width: 100%;
     margin-top: 10px;
-    padding: 5px 10px;
     border-radius: 5px;
     border-bottom: 1px solid gray;
+}
+.email_div:hover .fa-envelope{
+    color: black;
+    transition: all 0.5s linear;
+}
+.email_div:focus-within .fa-envelope {
+    color: black;
 }
 /* .mobile_number_div{
     width: 100%;
@@ -108,10 +141,16 @@ input:focus{
 }
 .password_div input{
     width: 100%;
-    padding: 5px 10px;
     margin-top: 10px;
     border-radius: 5px;
     border-bottom: 1px solid gray;
+}
+.password_div:hover .fa-lock{
+    color: black;
+    transition: all 0.5s linear;
+}
+.password_div:focus-within .fa-lock {
+    color: black;
 }
 .submit_button{
     margin-top: 15px;

@@ -79,6 +79,15 @@
     </div>
     <div class="home_div" >
         <div class="img_div">
+            <div class="message_div">
+                {% if messages %}
+                    {% for x in messages %}
+                        <div class="message" id="myMessage">
+                            {{x}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
             <img src="../static/images/bh1.png" id="home">
             <div class="text" data-aos="fade-up-right">
                 <h1 class="design">Designed <i>to</i> Sell</h1>
@@ -141,7 +150,24 @@
             <i class="fa-solid fa-xmark" onclick="CloseReview()"></i>
             {% csrf_token %}
             <div class="img_recieve">
-                {{ form.as_p }}
+                <h3 class="Review_heading">Write Review Here!!!</h3><hr>
+                <div class="rating">
+                    <input type="radio" name="rating" id="star5" value="5">
+                    <label for="star5" class="full"></label>
+        
+                    <input type="radio" name="rating" id="star4" value="4">
+                    <label for="star4" class="full"></label>
+        
+                    <input type="radio" name="rating" id="star3" value="3">
+                    <label for="star3" class="full"></label>
+        
+                    <input type="radio" name="rating" id="star2" value="2">
+                    <label for="star2" class="full"></label>
+        
+                    <input type="radio" name="rating" id="star1" value="1">
+                    <label for="star1" class="full"></label>
+                </div>
+                <textarea name="review" placeholder="Write your review here..."></textarea>
             </div>
             <button class="submit_button_review" type="submit">submit review</button>
         </form>
@@ -251,7 +277,11 @@
                         <a class="edit_review" style="cursor: pointer;" onclick="showFrame('{{x.id}}')"><i class="fa-solid fa-pencil"></i> Edit review</a>
                     {% endif %}
                     <div class="star_img_div">
-                        <img src="../static/images/5sta.png" alt="" class="star_img">
+                        <i class="fa-regular fa-star {% if x.rating > 0 %} fa-solid color {% endif %}"></i>
+                        <i class="fa-regular fa-star {% if x.rating > 1 %} fa-solid color {% endif %}"></i>
+                        <i class="fa-regular fa-star {% if x.rating > 2 %} fa-solid color {% endif %}"></i>
+                        <i class="fa-regular fa-star {% if x.rating > 3 %} fa-solid color {% endif %}"></i>
+                        <i class="fa-regular fa-star {% if x.rating > 4 %} fa-solid color {% endif %}"></i>
                     </div>
                     <p>{{x.review}}</p>
                     <div class="name_photo_div">
@@ -310,6 +340,7 @@
             window.location.href = "{% url 'home' %}";
         }
     </script>
+    <script src="../static/js/message.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 </html>

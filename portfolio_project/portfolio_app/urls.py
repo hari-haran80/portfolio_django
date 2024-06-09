@@ -41,12 +41,7 @@ urlpatterns = [
     path('update/<int:id>/', views.update_review, name='update_review'),
     path('del_data/<int:id>', views.delete_review, name='delete data'),
     
-    
-    # **************** Other Unwanted Section ********************
-    
-    # path('update_data/<int:id>', views.update_review, name='update data'),
-    # path('AddProfile', views.AddProfile, name='AddProfile'),
-    # path('dummy', views.dummy, name='dummy'),
-    # path('nav', views.nav, name='nav'),
+    # ***************** Access Denied *****************
 
+    path('AccessDenied', views.Denied, name = 'Denied')
 ]

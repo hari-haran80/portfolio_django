@@ -22,6 +22,22 @@
             <hr>
             <div class="img_recieve">
                 <label for="reviews">Update Review</label><br>
+                <div class="rating">
+                    <input type="radio" name="rating" id="star5" value="5" {% if reviews.rating == 5 %}checked{% endif %}>
+                    <label for="star5" class="full"></label>
+        
+                    <input type="radio" name="rating" id="star4" value="4" {% if reviews.rating == 4 %}checked{% endif %}>
+                    <label for="star4" class="full"></label>
+        
+                    <input type="radio" name="rating" id="star3" value="3" {% if reviews.rating == 3 %}checked{% endif %}>
+                    <label for="star3" class="full"></label>
+        
+                    <input type="radio" name="rating" id="star2" value="2" {% if reviews.rating == 2 %}checked{% endif %}>
+                    <label for="star2" class="full"></label>
+        
+                    <input type="radio" name="rating" id="star1" value="1" {% if reviews.rating == 1 %}checked{% endif %}>
+                    <label for="star1" class="full"></label>
+                </div>
                 <textarea name="review" id="reviews" rows="4" cols="50">{{reviews.review}}</textarea>
             </div>
             <button class="submit_button_review" type="submit">submit review</button>
