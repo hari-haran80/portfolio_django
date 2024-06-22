@@ -40,7 +40,7 @@ class UserProfile(models.Model):
 
     pro = models.OneToOneField(User, on_delete=models.CASCADE, default=None, null=True, blank=True)
     position = models.CharField(max_length=50, default="Select Profession", null=True, blank=True)
-    profile = models.ImageField(upload_to="images", max_length=100, default=static("images/profileimage.png"), null=True, blank=True)
+    profile = models.ImageField(upload_to="static/profile", max_length=100, default=static("images/profileimage.png"), null=True, blank=True)
     gender = models.CharField(choices=Gender_choices, max_length=6, default=None, null=True, blank=True)
     mobile = PhoneNumberField(null=False, blank=False, default='+91')
 
@@ -67,7 +67,7 @@ class UserReview(models.Model):
 class GalleryCategory(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='Galary/', blank=True, null=True)
+    image = models.ImageField(upload_to='static/Galary/', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -75,7 +75,7 @@ class GalleryCategory(models.Model):
 class Category(models.Model):
     gallery_category = models.ForeignKey(GalleryCategory, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='Galary/', blank=True, null=True)
+    image = models.ImageField(upload_to='static/Galary/', blank=True, null=True)
 
     def __str__(self):
         return self.name

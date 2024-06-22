@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+.registration_main_container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: normal;
+}
+.registration_sub_container h2{
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid gray;
+}
+.registration_sub_container{
+    margin-top: 5vh;
+    background-color: aliceblue;
+    width: 310px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 10px 10px 5px rgb(190, 103, 240);
+}
+.message_div{
+    background-color: rgb(255, 74, 74);
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    margin-top: 10px;
+    transition: opacity 0.5s ease;
+}
+.message_div p{
+    width: 100%;
+    text-align: center;
+}
+#eyeicon{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    margin-top: 14px;
+    margin-left: -30px;
+}
+.fa-solid{
+    position: absolute;
+    margin-top: 10px;
+    padding: 5px;
+    border-right: 2px solid grey;
+    color: grey;
+}
+input{
+    padding: 5px 30px;
+    box-shadow: 5px 5px 5px rgb(229, 103, 240);
+}
+input:focus{
+    outline: 2px solid rgb(229, 103, 240) ;
+}
+.Username_div{
+    margin-top: 10px;
+}
+.Username_div input{
+    margin-top: 10px;
+    width: 95%;
+    border-radius: 5px;
+    border-bottom: 1px solid gray;
+}
+.Username_div:hover .fa-user{
+    color: black;
+    transition: all 0.5s linear;
+}
+.Username_div:focus-within .fa-user {
+    color: black;
+}
+.names_div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+.first_name_div{
+    width: 100%;
+}
+.first_name_div input{
+    margin-top: 10px;
+    width: 95%;
+    border-radius: 5px;
+    border-bottom: 1px solid gray;
+}
+.first_name_div:hover .fa-user{
+    color: black;
+    transition: all 0.5s linear;
+}
+.first_name_div:focus-within .fa-user {
+    color: black;
+}
+.last_name_div{
+    width: 100%;
+}
+.last_name_div input{
+    margin-top: 10px;
+    padding: 5px 10px;
+    width: 95%;
+    border-radius: 5px;
+    border-bottom: 1px solid gray;
+}
+.email_div{
+    width: 100%;
+    margin-top: 10px;
+}
+.email_div input{
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid gray;
+}
+.email_div:hover .fa-envelope{
+    color: black;
+    transition: all 0.5s linear;
+}
+.email_div:focus-within .fa-envelope {
+    color: black;
+}
+/* .mobile_number_div{
+    width: 100%;
+    margin-top: 10px;
+}
+.mobile_number_div input{
+    width: 100%;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid gray;
+} */
+.password_div{
+    width: 100%;
+    margin-top: 10px;
+}
+.password_div input{
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid gray;
+}
+.password_div:hover .fa-lock{
+    color: black;
+    transition: all 0.5s linear;
+}
+.password_div:focus-within .fa-lock {
+    color: black;
+}
+.submit_button{
+    margin-top: 15px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+.btn_create{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: chartreuse;
+    border-radius: 50px;
+    font-weight: 700;
+}
+.btn_create:hover{
+    background-color: orange;
+}
+.already_have{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.Signin_link{
+    text-decoration: none;
+}
+.Signin_link:hover{
+    color: red;
+}

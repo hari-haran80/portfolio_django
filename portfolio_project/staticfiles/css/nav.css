@@ -1,0 +1,330 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    letter-spacing: .1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+.navigation{
+    position: fixed;
+    width: 100%;
+    height: 13vh;
+    z-index: 99;
+    background-color:rgba(113, 224, 255, 0.7);
+}
+.own{
+    text-shadow: 1px 1px 1px #5a5a5a,
+    1px 2px 1px #5a5a5a,
+    1px 3px 1px #5a5a5a,
+    1px 4px 1px #5a5a5a,
+    1px 5px 1px #5a5a5a,
+    1px 6px 1px #5a5a5a,
+    1px 7px 1px #5a5a5a,
+    1px 8px 1px #5a5a5a,
+    1px 9px 1px #5a5a5a,
+    1px 10px 1px #5a5a5a,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+    backdrop-filter: blur(9px);
+    position: fixed;
+    display: flex;
+    margin-top:25px ;
+    font-size: 35px;
+    margin-left: 35px;
+    color: rgb(255, 255, 255);
+    z-index: 111;
+}
+.head_nav{
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    float: right;
+    margin-right: 50px;
+    width: 650px;
+    height: 45%;
+    margin-top:25px ;
+    font-size: 20px;
+    transition: left 1s;
+}
+.head_nav .link:hover {
+    transition: 0.4s ease-in-out;
+}
+.name{    
+    display: flex;
+}
+.logout_login{
+    background: aliceblue;
+    padding: 10px 5px;
+    color: black;
+    font-size: 16px;
+    width: 100px;
+    font-weight: 700;
+    border-radius: 25px;
+}
+.fa-user{
+    background-color: whitesmoke;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+    margin-left: 10px;
+    font-weight:900;
+}
+.profile_link{
+    color: black;
+}
+.link{
+    text-decoration: none;
+    color: black;
+    padding: 10px 0px;
+    width: 130px;
+    height: 45px;
+    text-align: center;
+}
+.IfImg{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+#sub1{
+    color: black;
+}
+.inline_link, .sub_link{
+    text-decoration: none;
+    background-color:rgba(113, 224, 255, 0.9);
+    display: block;
+    width: 160px;
+    height: 45px;
+    padding: 10px 0;
+    color: black;
+    border-bottom: 2px solid aqua;
+}
+.sub_ul{
+    display: none;
+    position: absolute;
+    margin-left: 160px;
+    margin-top: -45px;
+    width: 210px;
+}
+.sub_link{
+    width: 210px;
+}
+.head_nav li:nth-child(2):hover .projects{
+    display: block;
+    position: absolute;
+}
+.projects li:nth-child(3):hover .sub_ul{
+    display: block;
+    position: absolute;
+}
+.inline_name, .sub_li{
+    list-style-type: none;
+    
+}
+.inline_link:hover, .sub_link:hover{
+    border-bottom: 3px solid red;
+}
+.inline_link:hover, .sub_link:hover, .link:hover{
+    background-color:rgb(133, 255, 210);
+    color: red;
+    transition: all 0.4s;
+    border-radius: 10px;
+}
+.logout_login:hover{
+    background-color:rgb(133, 255, 210);
+    color:white;
+    transition: all 0.2s;
+}
+#menu-icon{
+    display: none;
+}
+.projects{
+    display: none;
+    position: absolute;
+    margin-top: 41px;
+}
+.fa-angle-down{
+    float: right;
+    margin-top: 5px;
+}
+
+#frame_one{
+    margin-top: 13vh;
+    width: 100%;
+    height: 87vh;
+}
+/* -------whats app icon------ */
+
+.whats_app{
+    width: 49px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 150;
+    position: fixed;
+    margin-top: 85vh;
+    margin-left:92% ;
+}
+.whats_app a{
+    text-decoration: none;
+    font-size: 55px;
+    font-weight: 900;
+}
+.fa-whatsapp:hover{
+    color: red;
+}
+
+/* -------end of whats app icon------ */
+
+
+/* @media screen and (max-width: 2561px){
+    .own{
+        font-size: 65px;
+        margin-top: 2%;
+        margin-left: 5%;
+    }
+    .head_nav{
+        float: right;
+        width: 1300px;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 40px;
+        padding: 10px 20px;
+    }
+    .name{
+        padding: 10px 50px;
+    }
+    #width{
+        width: 250px;
+    }
+    .inline_link, .sub_link{
+        width: 100%;
+        padding: 10px 20px;
+        height: 100px;
+    }
+    .projects{
+        margin-top: 70px;
+    }
+    .sub_ul{
+        width: 400px;
+        margin-left: 290px;
+        margin-top: -100px;
+    }
+    .logout_login{
+        font-size: 35px;
+        padding:10px 20px ;
+    }
+
+     
+} */
+@media screen and (max-width: 961px){
+    #menu-icon{
+        display: flex;
+        font-size: 35px;
+        float: right;
+        margin-right: 5%;
+        margin-top: 20px;
+    }
+    .navigation{
+        height: 13vh;
+    }
+    .name{
+        padding: 10px 5px;
+        height: 12%;
+        justify-content: center;
+    }
+    .logout_login{
+        padding: 15px;
+        color: black;
+        border: 3px solid red;
+        font-size: 18px;
+    }
+    .link{
+        font-weight: 700;
+    }
+
+    .IfImg{
+        width: 100px !important;
+        height: 100px !important;
+        margin-top: 10px;
+    }
+    .head_nav{
+        display: block;
+        position: absolute;
+        left: -60%;
+        background-color:rgba(108, 122, 137, 1);        
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 60%;
+        height: 87vh;
+        margin-top: 13vh;
+        border-top: 5px solid red;
+    }
+    .inline_link, .sub_link{
+        background-color:rgba(108, 122, 137, 1);
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .projects{
+        margin-left: -5px;
+        width: 100%;
+    }
+    .sub_ul{
+        width: 100%;
+        margin: 0;  
+    }
+    
+}
+@media screen and (max-width: 768px){
+    .head_nav{
+        font-size: 20px;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 655px){
+    .whats_app{
+        margin-left: 85%;
+    }
+}
+@media screen and (max-width: 505px){
+    .link{
+        font-size: 15px;
+    }
+    .logout_login{
+        font-size: 15px;
+        padding: 10px;
+    }
+    
+}
+@media screen and (max-width: 425px){
+    .own{
+        font-size: 25px;
+    }
+    .link{
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+    .logout_login{
+        font-size: 15px;
+    }
+    
+    .inline_link, .sub_link{
+        font-size: 15px;
+        padding: 20px;
+        height: auto;
+        width: 90%;
+    }
+    .head_nav{
+        height: 90vh;
+        margin-top: 10vh;
+    }
+    .navigation{
+        height: 10vh;
+    }
+}

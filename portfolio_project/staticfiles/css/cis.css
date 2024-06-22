@@ -1,0 +1,146 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+.left{
+	float: right;
+}
+img{
+	height: 50px;
+	width: 250px;
+	filter: blur(9px);
+}
+.main{
+	width: 450px;
+	height: 580px;
+	margin: auto;
+}
+.main_container{
+	width: 450px;
+	height: 370px;
+	margin: auto;
+	margin-top: 65px;
+	text-align: center;
+	border-bottom: 1px solid blue;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.heading{
+	color: navy;
+	font-weight: 550;
+}
+.first{
+	margin-top: 15px;
+	font-weight:400;
+	font-size: 16px;
+}
+#username, #password{
+	margin-top: 20px;
+	width: 80%;
+	padding: 5px 50px;
+	font-size: 20px;
+	position: relative;
+	margin-left:auto ;
+	border: none;
+	background-color: whitesmoke;
+	opacity: 0.5;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.button{
+	margin-top: 35px;
+	width: 80%;
+	padding: 5px 20px;
+	background-color: navy;
+	color: whitesmoke;
+	border-radius: 5px;
+	font-size: 20px;
+}
+.signin{
+	color: white;
+	text-decoration: none;
+}
+.below{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	font-size: 15px;
+	font-weight: 550;
+}
+.forgot_div{
+	margin-left: 45px;
+}
+.Report_div{
+	margin-right: 45px;
+}
+.manage{
+	margin-top: 15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 17px;
+	font-weight: 600;
+}
+#one{
+	font-weight: 500;
+}
+.fa-bullseye{
+	position: absolute;
+	font-size: 25px;
+	margin-top: 5px;
+	margin-left: 45px;
+	color: blue;
+}
+.footer{
+	text-align: center;
+	margin-top: 90px;
+}
+.button:hover{
+	transition: all 0.5s ease;
+	background-color: red;
+}
+.signin:hover{
+	color: white;
+	text-decoration: none;
+}
+.fa-user, .fa-unlock-keyhole{
+	margin-left:15px;
+	margin-top: 30px;
+	position: absolute;
+	z-index: 1;
+	font-size: 20px;
+	opacity: 0.4;
+}
+.fa-eye-slash{
+	margin-left:-35px;
+	margin-top: 30px;
+	position: absolute;
+	z-index: 1;
+	font-size: 20px;
+	opacity: 0.4;
+}
+@media screen and (max-width:531px){
+	img{
+		width: 200px;
+	}
+}
+@media screen and (max-width:456px){
+	img{
+		width: 130px;
+	}
+	.main{
+		width: 100%;
+	}
+	.main_container{
+		width: 100%;
+	}
+	.below{
+		font-size: 12px;
+	}
+	.first{
+		font-size: 12px;
+	}
+	#rta{
+		display: none;
+	}
+}

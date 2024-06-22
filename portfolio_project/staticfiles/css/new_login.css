@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: linear-gradient(to right, aliceblue 0px, skyblue 5% , lightblue 10%, purple 200%);
+}
+.main_div{
+    width: 300px;
+    height: 552px;
+    margin-left: 20%;
+    border-radius:30px ;
+    padding: 20px;
+    margin-top: 5%;
+}
+
+/* inserting background immage */
+
+.img_div{
+    margin-left: 20%;    
+}
+.img_new{
+    width: 60%;
+    height: 550px;
+    position: absolute;
+    border-radius: 30px;
+}	
+
+/* welcome heading */
+
+.welcome{
+    font-size: 30px;
+    position: relative;
+    background: none;
+    top: 50px;
+    text-align: center;
+}
+
+/* login heading */
+
+.heading_div{
+    font-size: 30px;
+    background: none;
+    position: relative;
+    top: 60px;
+    text-align: center;
+}
+
+/* entire form */
+
+.form{
+    position: relative;
+    background: none;
+    top: 60px;
+}
+
+/* email password and inputs for both*/
+
+.email_div{
+    background: none;
+    margin-top: 20px;
+}
+.password_div{
+    background: none;
+}
+.Email{
+    background: none;
+}
+.password{
+    background: none;
+}
+.input{
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    width: 100%;
+    height: 25px;
+}
+
+/* forgot password*/
+
+.forget{
+    background: none;
+    position: relative;
+    top: 18px;
+    float: right;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+/* login css*/
+
+.login_div{
+    width:100px ;
+    background: none;
+    position: relative;
+    top: 25px;
+    left: 70px;
+}
+#submit{
+    border: 1px solid black;
+    width: 100px;
+    height: 35px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: palevioletred;
+    color: antiquewhite;
+    font-weight: 600;
+}
+
+/* or continue*/
+
+.para{
+    color: blue;
+    font-size: 14px;
+    position: absolute;
+    background: none;
+    top: 190px;
+    left: 75px;
+}
+
+/* icons from font awsome */
+
+.buttons_div{
+    position: relative;
+    top: 100px;
+    background-color:aquamarine;
+    font-size: 30px;
+    text-align: center;
+    background:none;
+}
+.icon_div{
+    border-radius:50px ;
+    margin-left: 5px;
+    display: inline;
+    background:whitesmoke;
+    border: 1px solid blue;
+    
+}
+.fa-brands{
+    width: 70px;
+    text-align: center;
+    background: none;
+    text-decoration: none;
+}
+a{
+    font-size: 20px;
+}
+
+/* sign up for free */
+
+.account_div{
+    background: none;
+    margin-top: 15px;
+}
+.account{
+    background: none;
+    font-size: 15px;
+    display: inline;
+}
+.a{
+    background: none;
+    font-size: 15px;
+    color: blue;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+/*form hover effects*/
+
+#submit:hover{
+    background: lightgreen;
+    color: black;
+    transform: scale(1.2);
+}
+.icon_div:hover{
+    background: lightgreen;
+}
+a:hover{
+    color: red;
+    transform: scale(1.2);
+}
+
+
+@media only screen and (max-width: 940px){
+    .img_new{
+        filter: blur(9px);
+    }
+    .main_div{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}
+@media only screen and (max-width: 680px){
+    *{
+        background-image: linear-gradient(to right, skyblue 5% , lightblue 10%, purple 200%);
+    }
+    .img_div{
+        display: none;						
+    }
+    .main_div{
+        width: 320px;
+        height: 500px;
+        font-weight: 500;
+        margin-top: 50px;
+        border: 1px solid black;
+    }
+    .forget{
+        font-weight: 600;
+    }
+    .para_div{
+        text-align: center;
+    }
+    .para{
+        left: 0;
+        width: 100%;
+    }
+    #submit{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .login_div{
+        width: 100%;
+        left: 0;
+        display: flex;
+    }
+    .account_div{
+        margin-top: 0px;
+    }
+    .account{
+        font-size: 12px;
+    }
+}
