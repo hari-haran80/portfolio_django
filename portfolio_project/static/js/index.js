@@ -27,7 +27,7 @@ function CloseReview(){
 function showFrame(id) {
     var iframeContainer = document.getElementById('iframeContainer');
     var iframe = document.getElementById('overlayIframe');
-    iframe.src = "/update/" + id;           
+    iframe.src = "/update/" + id+"/";           
     iframeContainer.style.display = 'block'
 
     while (iframeContainer.firstChild) {
