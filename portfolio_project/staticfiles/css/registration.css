@@ -38,6 +38,7 @@
     text-align: center;
 }
 #eyeicon{
+    cursor: pointer;
     width: 18px;
     height: 18px;
     position: absolute;
@@ -124,17 +125,6 @@ input:focus{
 .email_div:focus-within .fa-envelope {
     color: black;
 }
-/* .mobile_number_div{
-    width: 100%;
-    margin-top: 10px;
-}
-.mobile_number_div input{
-    width: 100%;
-    padding: 5px 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border-bottom: 1px solid gray;
-} */
 .password_div{
     width: 100%;
     margin-top: 10px;
@@ -158,6 +148,7 @@ input:focus{
     border-bottom: 1px solid black;
 }
 .btn_create{
+    cursor: pointer;
     width: 100%;
     margin-bottom: 20px;
     padding: 10px;

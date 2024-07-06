@@ -15,6 +15,9 @@ def home(request):
     data = UserReview.objects.all()
     profile = UserProfile.objects.all()
     
+    user_profile = UserProfile.objects.get(pro=request.user)
+    user_review = UserReview.objects.filter(profile_name=user_profile).exists()
+    
     # Write Review Section
     
     if request.method == 'POST':
@@ -36,7 +39,8 @@ def home(request):
 
     context = {
         'image':data,
-        'profile':profile
+        'profile':profile,
+        'user_review': user_review
     }
     
     return render(request, 'index.html',context)
@@ -159,7 +163,7 @@ def register_new(request):
             return redirect('/signin')
             
         else:
-            messages.error(request, 'password do not match')
+            messages.error(request, 'Password Do Not Match')
             return render(request, 'register.html')
        
     
@@ -214,6 +218,13 @@ def update_profile(request, id):
         return redirect(reverse('profile', kwargs={'id': id}))
     
     return render(request, 'update_profile.html',{'update':update})
+
+# ---------- Delete User Profile ------------------------
+
+def Delete_profile(request, id):
+    user = request.user
+    user.delete()
+    return redirect('signin')
         
 # ------------------- LogIn section ----------------------
 
@@ -230,7 +241,7 @@ def Login_new(request):
             return redirect('home')
         
         else:
-            messages.error(request, 'enter correct username and password')
+            messages.error(request, 'Enter Correct Username and Password')
             return render(request, 'signin.html')
         
     return render(request, 'signin.html')
@@ -256,13 +267,13 @@ def reset_password(request):
             user = get_user_model().objects.get(username =username)
         
         except:
-            messages.warning(request,'User does not exist!')
+            messages.warning(request,'User Does Not Exist!')
             return render (request, 'forget.html')
         
         user.set_password(password)
         user.save()
         
-        messages.success(request, 'password reset successfully')
+        messages.success(request, 'Password Reset Successfully')
         return redirect('signin')  
           
     return render (request, 'forget.html')

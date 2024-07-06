@@ -20,7 +20,7 @@
                 <div class="Username_div">
                     <label for="">User Name:</label><br>
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" id="" name="username" placeholder="Enter User Name"  required>
+                    <input type="text" name="username" placeholder="Enter User Name"  required>
                 </div>
                 <div class="names_div">
                     <div class="first_name_div">
@@ -36,7 +36,7 @@
                 <div class="email_div">
                     <label for="">Email address:</label><br>
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="" placeholder="example@gmail.com" name="email"  required>
+                    <input type="email" placeholder="example@gmail.com" name="email"  required>
                 </div>
                 <div class="password_div">
                     <label for="">Enter Password:</label><br>
@@ -47,8 +47,7 @@
                     <span id="passwordError" style="color: red;"></span>
                     <label for="">Confirm Password:</label><br>
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Re-Enter your Password" id="password" name="Password2"  required>
-                    <img src="../static/images/eye-close.png" alt="view password" title="view password" id="eyeicon">
+                    <input type="password" placeholder="Re-Enter your Password" name="Password2"  required>
                     {% if messages %}
                         {% for message in messages %}
                         <div class="message_div" id="myMessage">

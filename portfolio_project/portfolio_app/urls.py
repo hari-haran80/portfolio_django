@@ -34,6 +34,7 @@ urlpatterns = [
     
     path('profile/<int:id>', views.User_profile, name='profile'),
     path('profile_update/<int:id>', views.update_profile, name='profile_update'),
+    path('Delete_profile/<int:id>', views.Delete_profile, name='Delete_profile'),
     
     # **************** User Review Section ********************
     # Create Review Section is with Home page Views

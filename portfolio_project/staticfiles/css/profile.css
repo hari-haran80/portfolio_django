@@ -108,6 +108,17 @@
     padding:5px ;
     margin-top: 10px;
 }
+.fa-trash{
+    cursor: pointer;
+    color: orangered;
+    position: absolute;
+    top: 1.5rem;
+    right: 3rem;
+    font-size: 20px;
+}
+.fa-trash:hover{
+    color: darkred;
+}
 .details{
     display: flex;
     justify-content: space-around;
@@ -199,5 +210,10 @@
     .inputs{
         padding: 10px;
         width: 95%;
+    }
+}
+@media screen and (max-width: 551px){
+    .fa-trash{
+        top: 3.5rem;
     }
 }

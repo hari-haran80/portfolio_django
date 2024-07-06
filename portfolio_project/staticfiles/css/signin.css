@@ -107,6 +107,7 @@ input:focus{
     text-decoration: none;
 }
 #eyeicon{
+    cursor: pointer;
     width: 18px;
     height: 18px;
     position: absolute;
@@ -118,6 +119,7 @@ input:focus{
     width: 100%;
 }
 .Login_button_div button{
+    cursor: pointer;
     width: 100%;
     padding:10px;
     font-weight: 700;

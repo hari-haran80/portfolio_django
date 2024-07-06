@@ -30,7 +30,6 @@
             <div class="profile_image_div">
                 <div class="image_div">
                     <img src="..{{ user_datas.profile.url }}" class="profile_image" alt="">
-                    <!-- <a href=""><i class="fa-solid fa-camera"></i></a> -->
                 </div>
                 <h1>{{user1.username}}</h1>
                 <h3>{{user_datas.position}}</h3>
@@ -38,6 +37,7 @@
             <div class="details_div">
                 <form action="" method="POST" class="form">
                     <h2 class="welcome_heading">Welcome Back {{user1.first_name}} !!!</h2>
+                    <a href="/Delete_profile/{{user1.id}}"><i class="fa-solid fa-trash" title="Delete Profile"></i></a>
                     <div class="details">
                         <div class="firstname inner">
                             <label for="fname">First Name :</label><br>

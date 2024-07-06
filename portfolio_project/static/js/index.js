@@ -36,5 +36,3 @@ function showFrame(id) {
 
     iframeContainer.appendChild(iframe);
 }
-
-// Iframe closing and redirecting script
