@@ -8,7 +8,12 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.core.mail import send_mail
 from django.conf import settings
+from django.http import FileResponse
+import os
 
+def resume_view(request):
+    pdf_path = os.path.join(settings.BASE_DIR, 'static/new cv.pdf')
+    return FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
 
 @login_required(login_url='signin')
 def home(request):

@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{% static 'css/img.css' %}">
     <title>My Portal</title>
     <style>
+        *{
+            user-select: none;
+        }
         .overlayContainer {
             position: fixed;
             top: 0;
@@ -46,7 +49,9 @@
                     <ul class="projects" >
                         <li class="inline_name"><a href="/gallery" class="inline_link">Photo Galary</a></li>
                         <li class="inline_name"><a href="/cards" class="inline_link">Cards</a></li>
-                        <li class="inline_name">
+                        <li class="inline_name"><a href="https://hari-haran80.github.io/React-weatherApp/" class="inline_link" target="_blank">Weather App</a></li>
+                        <li class="inline_name"><a href="https://hari-haran80.github.io/React-portfolio/" class="inline_link" target="_blank">React Portfolio</a></li>
+                        <!-- <li class="inline_name">
                             <a href="#" class="inline_link">Forms<i class="fa-solid fa-angle-down"></i></a>
                             <ul class="sub_ul" id="sub_id">
                                 <li class="sub_li"><a href="/login" class="sub_link" target="_blank">Login Form</a></li>
@@ -54,7 +59,7 @@
                                 <li class="sub_li"><a href="/cis" class="sub_link" target="_blank">Cts Form</a></li>
                             </ul>
                             <li class="inline_name"><a href="https://hari-haran80.github.io/React-portfolio/" class="inline_link" target="_blank">Portfolio</a></li>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 <li class="name"><a href="/about" class="link" >About</a></li>
@@ -187,7 +192,9 @@
             <div class="write_review">
                 {% if user_review %}
                     {% for x in image %}
-                        <a class="review_link" style="cursor: pointer;" onclick="showFrame('{{x.id}}')"><i class="fa-solid fa-pencil"></i> Edit review</a>
+                        {% if x.profile_name.pro.username == user.username %}
+                            <a class="review_link" style="cursor: pointer;" onclick="showFrame('{{ x.id }}')"><i class="fa-solid fa-pencil"></i>Edit review</a>
+                        {% endif %}
                     {% endfor %}
                 {% else %}
                     <a onclick="reviewWrite()" style="cursor: pointer;" class="review_link fa-solid fa-pencil" data-aos="fade-down"> Write review</a>
