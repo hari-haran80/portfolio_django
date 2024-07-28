@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
     <title>Contact Me</title>
     <style>
-
+        .sub_button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -24,10 +27,10 @@
                 <a href="view_contact" class="ViewBtn">View Submited Forms</a>
             </div>
         {% endif %}
-            <h1>Let's find solutions <span> together?</span></h1>
+            <h1 class="ContactH1">Let's find solutions <span> together?</span></h1>
             <h4>| Contact</h4>
             <p class="para1">Fill in the form or just use my contacts below if you need to put a project on the move, let's work on it!</p>
-            <p class="para5"><a href="mainto:hariharan.a69@gmail.com" class="link7">hariharan.a69@gmail.com</a></p>
+            <p class="para5"><a href="mailto:hariharan.a69@gmail.com"  class="link7"><i class="fa-solid fa-envelope fa-beat"></i> hariharan.a69@gmail.com</a></p>
         </div>
         <div class="form_div" data-aos="fade-right"
         data-aos-anchor="#example-anchor"
@@ -35,24 +38,24 @@
         data-aos-duration="500">
             {% if messages %}
                 {% for message in messages %}
-                    <div class="alert alert-success">
+                    <div class="alert alert-success {{ message.tags }}">
                         {{ message }}
                     </div>
                 {% endfor %}
             {% endif %}
-            <form action="" method="POST">
+            <form action="" method="POST" onsubmit="changeButton()">
                 {% csrf_token %}
                 <div class="one name_div">
-                    <label for="name" class="lable">Name</label><br>
-                    <input type="text" placeholder="Enter your name" class="input" name="name"><br>
+                    <label for="name" class="lable">Name*</label><br>
+                    <input type="text" maxlength="25" placeholder="Enter your Name" required class="input" name="name"><br>
                 </div>
                 <div class="one email_div">
-                    <label for="email" class="lable">Email</label><br>
-                    <input type="email" placeholder="Enter your email" class="input" name="email"><br>
+                    <label for="email" class="lable">Email*</label><br>
+                    <input type="email" placeholder="Enter your Email" required class="input" name="email"><br>
                 </div>
                 <div class="one option_1">
-                    <label for="" class="lable">What can I help you with?</label><br>
-                    <select name="web" id="" class="input sel">
+                    <label for="" class="lable">What can I help you with?*</label><br>
+                    <select name="web" id="" class="input sel" required>
                         <option value="" class="options">select one</option>
                         <option value="Front End" class="options">Front End</option>
                         <option value="Back End" class="options">Back End</option>
@@ -61,8 +64,8 @@
                     </select><br>
                 </div>
                 <div class="one option_2">
-                    <label for="" class="lable">Do you have a defined timeframe?</label><br>
-                    <select name="days" id="" class="input sel">
+                    <label for="" class="lable">Do you have a defined timeframe?*</label><br>
+                    <select name="days" id="" class="input sel" required>
                         <option value="" class="options">select one</option>
                         <option value="2 - 4 weeks" class="options">2 - 4 weeks</option>
                         <option value="1 - 2 Months" class="options">1 - 2 Months</option>
@@ -70,8 +73,8 @@
                     </select><br>
                 </div>
                 <div class="one para_div">
-                    <label for="" class="lable">What would make you happy in this project?</label><br>
-                    <textarea id="" cols="50" rows="3" placeholder="Share some words regarding the project goals" class="input text_area" name="text"></textarea><br>
+                    <label class="lable">What would make you happy in this project?*</label><br>
+                    <textarea cols="50" rows="3" required placeholder="Share some words regarding the project goals" class="input text_area" name="text"></textarea><br>
                 </div>
                 <button type="submit" class="sub_button">Submit Form</button>
             </form>
@@ -79,6 +82,11 @@
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        function changeButton (){
+            let button = document.querySelector('.sub_button');
+            button.textContent = 'Submitting';
+            button.disabled = true;
+        }
         AOS.init();
 
         function HideMessage(){

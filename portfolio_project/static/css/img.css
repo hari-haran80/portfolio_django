@@ -13,10 +13,10 @@
     opacity: 0.8;
     background-color: grey;
 }
-.fa-xmark{
-    text-align: center;
-    display: grid;
-    align-items: center;
+.ReviewCloseIcon{
+    text-align: center !important;
+    display: grid !important;
+    align-items: center !important;
     position: relative;
     left: 250px;
     top: -15px;
@@ -45,7 +45,6 @@
     border-radius:10px ;
     background-color: aliceblue;
     box-shadow: 7px 7px 5px rgb(190, 103, 240);
-    
 }
 label{
     font-weight: 700;
@@ -85,19 +84,19 @@ input[type="file" i]{
     border-radius: 15px;
     border:  none;
     font-weight: 700;
-    background-color: rgb(209, 244, 13);
+    background:linear-gradient(45deg, #ee82ee, #add8e6) !important;
     box-shadow: 5px 5px 5px rgb(229, 103, 240);
 }
 .submit_button_review:hover{
     transition: all 0.5s;
-    background-color: #64b5f6;
+    background:linear-gradient(45deg,#add8e6, #ee82ee ) !important;
 }
-.fa-xmark:hover{
+.ReviewCloseIcon:hover{
     background-color: red;
 }
 
 @media screen and (max-width: 426px) {
-    .fa-xmark{
+    .ReviewCloseIcon{
         right: 30px;
     }
 }

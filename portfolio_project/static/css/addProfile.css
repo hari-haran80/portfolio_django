@@ -60,6 +60,13 @@ button{
 button:hover{
     background-color: greenyellow;
 }
+.img_recieve{
+    margin-top: 10px;
+}
+.submit_button_review:disabled{
+    cursor: not-allowed;
+    background-color: grey;
+}
 .form_main_div{
     width: 100%;
     height: 100vh;

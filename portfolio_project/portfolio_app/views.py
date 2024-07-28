@@ -129,13 +129,30 @@ def update_review(request, id):
 
 
 @login_required(login_url='signin')
+def Confirm_delete(request, id):
+    
+    review = get_object_or_404(UserReview, pk =id)
+    
+    currentUser = request.user
+    
+    if not currentUser.is_superuser and currentUser.id != review.profile_name.pro.id:
+        return render(request, 'access.html')
+    
+    return render(request, 'confirmation.html',{'review':review})
+
+
+@login_required(login_url='signin')
 def delete_review(request, id):
 
     instance = get_object_or_404(UserReview, pk =id)
-    instance.delete()
+    
+    if request.method == 'POST':
+        instance.delete()
+        messages.success(request, 'Your review Deleted successfully.')
+        return redirect('home')
 
-    messages.success(request, 'Your review Deleted successfully.')
-    return redirect('home')
+    return render(request, 'confirmation.html',{'instance':instance})
+
 
 
 # ---------------- Create User Account --------------------------
@@ -150,26 +167,48 @@ def register_new(request):
         Password1 = request.POST['Password1']
         Password2 = request.POST['Password2']
         
-        if Password1 == Password2:
-            data1 = User.objects.create_user(
-            username=username,
-            first_name=First_name,
-            last_name=Last_name,
-            email=email,
-            password=Password1
-        )
-            data1.is_staff = True
-            data1.save()
-            data1.set_password(Password1)
-            
-            messages.success(request, 'Account Created Successfully!!')
-            request.session['username'] = data1.username
-            
-            return redirect('/signin')
-            
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "User Name Exists Already. Try a Different Name.")
+            context = {
+                'username': username,
+                'First_name': First_name,
+                'Last_name': Last_name,
+                'email': email,
+                'Password1': Password1,
+                'Password2': Password2,
+            }
+            return render(request, 'register.html', context)
+        
         else:
-            messages.error(request, 'Password Do Not Match')
-            return render(request, 'register.html')
+            if Password1 == Password2:
+                data1 = User.objects.create_user(
+                username=username,
+                first_name=First_name,
+                last_name=Last_name,
+                email=email,
+                password=Password1
+            )
+                data1.is_staff = True
+                data1.save()
+                data1.set_password(Password1)
+
+                messages.success(request, 'Account Created Successfully!!')
+                request.session['username'] = data1.username
+
+                return redirect('/signin')
+
+            else:
+                messages.error(request, 'Password Do Not Match')
+                context = {
+                    'username': username,
+                    'First_name': First_name,
+                    'Last_name': Last_name,
+                    'email': email,
+                    'Password1': Password1,
+                    'Password2': Password2,
+                }
+                
+                return render(request, 'register.html', context)
        
     
     return render(request, 'register.html')
@@ -180,13 +219,13 @@ def register_new(request):
 @login_required(login_url='signin.html')
 def User_profile(request, id):
     
+    profile = request.user
     currentUser = request.user.id
-    if currentUser != id:
+    if not profile.is_superuser and currentUser != id:
         return render(request, 'access.html')
     
     user = UserProfile.objects.get(pro_id = id)
     user1 = user.pro 
-    
     context = {
         
         'user_datas' : user, 
@@ -207,8 +246,16 @@ def update_profile(request, id):
     
     update = UserProfile.objects.get(pro_id = id)
     
-    if request.method =="POST":
-        update.profile = request.FILES['profile']
+    if request.method =="POST":  
+        excluded = '/static/images/profileimage.png'
+        
+        if update.profile != excluded:
+            if len(update.profile) > 0:
+                os.remove(update.profile.path) 
+            update.profile = request.FILES['profile']  
+        else:
+            update.profile = request.FILES['profile']  
+                  
         update.gender = request.POST['gender']
         update.mobile = request.POST['mobile']
         update.position = request.POST['position']
@@ -224,9 +271,26 @@ def update_profile(request, id):
     
     return render(request, 'update_profile.html',{'update':update})
 
+# ---------- Confirm Delete User Profile ------------------------
+
+def Confirm_Profile_delete(request, id):
+
+    currentUser = request.user.id
+    if currentUser != id:  
+        return render(request, 'access.html')
+    
+    return render(request, 'ProfileDeleteConfirmation.html')
+
 # ---------- Delete User Profile ------------------------
 
 def Delete_profile(request, id):
+    update = UserProfile.objects.get(pro_id = id)
+    excluded = '/static/images/profileimage.png'
+    
+    if update.profile != excluded:
+        if len(update.profile) > 0:
+            os.remove(update.profile.path)
+                
     user = request.user
     user.delete()
     return redirect('signin')
@@ -235,19 +299,23 @@ def Delete_profile(request, id):
 
 def Login_new(request):
 
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username = username, password = password)
+    if request.user.is_authenticated:
+        return redirect('home')
+    
+    else:
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username = username, password = password)
 
-        if user is not None:
-            auth_login (request, user)
-            messages.success(request, 'Welcome Back '+ user.first_name)
-            return redirect('home')
-        
-        else:
-            messages.error(request, 'Enter Correct Username and Password')
-            return render(request, 'signin.html')
+            if user is not None:
+                auth_login (request, user)
+                messages.success(request, 'Welcome Back '+ user.first_name)
+                return redirect('home')
+
+            else:
+                messages.error(request, 'Enter Correct Username and Password')
+                return render(request, 'signin.html')
         
     return render(request, 'signin.html')
 
@@ -292,9 +360,11 @@ def galary(request):
 
 def Galaryview(request, name):
 
+    category = get_object_or_404(GalleryCategory, name=name)
     images = Category.objects.filter(gallery_category__name=name)    
     context = {
         'images': images,
+        'category':category,
     }
     
     return render(request, 'viewImage.html', context)

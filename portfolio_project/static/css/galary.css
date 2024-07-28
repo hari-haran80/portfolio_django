@@ -35,8 +35,7 @@
 }
 .ImageSlider{
     width: 100%;
-    height: 86vh;
-    margin-top: 13vh;
+    height: 99vh;
 }
 
 .slider-items, .hidden{
@@ -141,6 +140,7 @@
 }
 .heading{
     text-align: center;
+    position: relative;
     width: 100%;
 }
 .heading h1{
@@ -175,13 +175,57 @@
     transform: scale(1.1);
     filter: grayscale(0%);
 }
+.BackButton{
+    width: 35px;
+    height: 35px;
+    background-color: orange;
+    border: 1px inset red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    text-decoration: none;
+    padding: 5px 1rem;
+    font-size: 22px;
+    top: 5rem;
+    left: 5rem;
+    color: black;
+    font-weight: 900;
+    color: rgb(255, 67, 34);
+    transition: all 0.3s ease-in-out;
+}   
+.BackButton:hover{
+    color: darkred;
+    border: 1px solid darkred;
+}
+@media screen and (max-width: 1472px){
+    .BackButton{
+        top: 6.5rem;
+    }
+}
+@media screen and (max-width: 1025px){
+    .BackButton{
+        top: 4rem;
+    }
+}
 @media screen and (max-width: 800px){
     .images{
         filter: none;
     }
 }
-@media screen and (max-width: 425px){
-    .ImageSlider{
-        margin-top: 10vh;
+@media screen and (max-width: 743px){
+    .BackButton{
+        left: 1rem;
+    }
+}
+@media screen and (max-width :426px){
+    .BackButton{
+        left: -0.7rem;
+    }
+}
+@media screen and (max-width :343px){
+    .images{
+        width: 250px;
     }
 }

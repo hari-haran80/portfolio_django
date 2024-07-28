@@ -1,0 +1,17 @@
+<!-- In your base template or specific template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/preloader.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page with Preloader</title>
+</head>
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <script src="{% static 'js/preloader.js' %}"></script>
+</body>
+</html>

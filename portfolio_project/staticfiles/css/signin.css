@@ -21,7 +21,6 @@
 
 }
 .message_div{
-    background-color: lightgreen;
     width: 100%;
     padding: 5px;
     text-align: center;
@@ -29,8 +28,6 @@
 }
 .MessagePara{
     width: 100%;
-    color: whitesmoke;
-    background-color: rgb(243, 60, 60);
     border-radius: 10px;
     padding: 5px;
     text-align: center;
@@ -107,7 +104,6 @@ input:focus{
     text-decoration: none;
 }
 #eyeicon{
-    cursor: pointer;
     width: 18px;
     height: 18px;
     position: absolute;
@@ -119,7 +115,6 @@ input:focus{
     width: 100%;
 }
 .Login_button_div button{
-    cursor: pointer;
     width: 100%;
     padding:10px;
     font-weight: 700;

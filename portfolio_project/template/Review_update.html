@@ -8,14 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Update</title>
     <style>
-        .img_recieve{
-            margin-top: 10px;
-        }
+        
     </style>
 </head>
 <body>
     <div class="form_main_div">
-        <form action="" method="post" enctype="multipart/form-data" class="form">
+        <form action="" method="post" enctype="multipart/form-data" class="form" onsubmit="UpdateReview()">
             <a class="fa-solid fa-xmark" title="Close" onclick="closeIframe()"></a>
             {% csrf_token %}
             <h4>Update Review's Here!</h4>
@@ -40,11 +38,17 @@
                 </div>
                 <textarea name="review" id="reviews" rows="4" cols="50">{{reviews.review}}</textarea>
             </div>
-            <button class="submit_button_review" type="submit">submit review</button>
+            <button class="submit_button_review" id="UpdateReviewBtn" type="submit">submit review</button>
         </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script>
+        function UpdateReview (){
+            const ReviewSubmitBtn = document.getElementById('UpdateReviewBtn');
+            ReviewSubmitBtn.disabled = true;
+            ReviewSubmitBtn.textContent = 'Updating..' 
+        }
+
         function closeIframe() {
             window.parent.document.getElementById('iframeContainer').style.display = 'none';
         }

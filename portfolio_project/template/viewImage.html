@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>view Gallery</title>
-    <link rel="stylesheet" href="../static/css/galary.css">
+    <link rel="stylesheet" href="{% static 'css/galary.css' %}">
     <style>
-        .BackButton{
-            position: absolute;
-            text-decoration: none;
-            padding: 10px 30px;
-            background-color: red;
-            margin-top: -30px;
-            margin-left: 250px;
-            color: black;
-            font-weight: 700;
-            border-radius: 15px;
-            border: 1px solid rgb(255, 166, 0);
-        }   
-        .BackButton:hover{
-            background-color: rgb(255, 166, 0);
-            border: 1px solid red;
-        }
+
     </style>
 </head>
 <body> 
@@ -30,8 +17,8 @@
         <div class="Sub_container">
             <br>
             <div class="heading">
-                <h1>Gallery</h1>
-                <!-- <a class="BackButton" href="/gallery">Back</a> -->
+                <h1>{{category.name}}</h1>
+                <a class="BackButton" href="/gallery"><h3 class="fa-solid fa-arrow-left" title="Back"></h3></a>
             </div>  
             <div class="galary">
                 {% for x in images %}

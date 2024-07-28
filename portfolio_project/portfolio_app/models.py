@@ -36,10 +36,11 @@ class UserProfile(models.Model):
     Gender_choices = [
         ('Male', 'Male'),
         ('Female', 'Female'),
+        ('Others', 'Others'),
     ]
 
     pro = models.OneToOneField(User, on_delete=models.CASCADE, default=None, null=True, blank=True)
-    position = models.CharField(max_length=50, default="Select Profession", null=True, blank=True)
+    position = models.CharField(max_length=50, default="Enter Profession", null=True, blank=True)
     profile = models.ImageField(upload_to="static/profile", max_length=100, default=static("images/profileimage.png"), null=True, blank=True)
     gender = models.CharField(choices=Gender_choices, max_length=6, default=None, null=True, blank=True)
     mobile = PhoneNumberField(null=False, blank=False, default='+91')

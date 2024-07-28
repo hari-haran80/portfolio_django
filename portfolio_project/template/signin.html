@@ -5,23 +5,31 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/custom-cursor.css' %}">
     <link rel="shortcut icon" href="../static/images/login.png" type="image/x-icon">
-    <link rel="stylesheet" href="../static/css/signin.css">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">    
+    <link rel="stylesheet" href="{% static 'css/messages.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signin</title>
     <style>
-        
+        .forget_link:hover{
+            color: red;
+        }
+        #SigninBtn:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
     {% include 'cursor.html' %}
+    {% include 'preloader.html' %}
     <div class="main_login_container">
         <div class="sub_login_container">
-            <form action="" method="POST" >
+            <form action="" method="POST" onsubmit="SigninSubmission()">
                 {% csrf_token %}
                 {% if messages %}
                     {% for x in messages %}
-                        <div  {% if message.tags %}class="alert message_div alert-{{ message.tags }}"{% endif %} id="myMessage">
+                        <div class="message_div {{ x.tags }}" id="myMessage">
                             <p class="MessagePara">{{x}}</p>
                         </div>
                     {% endfor %}
@@ -30,27 +38,34 @@
                 <div class="Email_div_login">
                     <label for="">User Name:</label><br>
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" name="username" id="" placeholder="User Name" required>
+                    <input type="text" name="username" id="" placeholder="Enter User Name" required>
                 </div>
                 <div class="Password_login_div">
                     <label for="">Password:</label><br>
                     <i class="fa-solid fa-lock"></i>
                     <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
-                    <a href="forget_password" class="forget_link">Forget Password</a>
+                    <a href="forget_password" class="forget_link">Forgot Password</a>
                     <img src="../static/images/eye-close.png" alt="view password" title="view password" id="eyeicon">
                 </div>
                 <div class="Login_button_div">
-                    <button type="submit">Submit</button>
+                    <button id="SigninBtn" type="submit">Submit</button>
                 </div>
                 <div class="span_div"></div>
                 <div class="New_account_div">
-                    <p>Don't have an account? <a href="/new_registration">Create one now</a>
+                    <p>Don't have an account? <a href="/new_registration">Create One Now</a>
                 </div>
             </form>
         </div>
     </div>
+    <script>
+        function SigninSubmission() {
+            const btnSignIn = document.getElementById('SigninBtn');
+            btnSignIn.textContent = 'Signing In...';
+            btnSignIn.disabled = true;
+        }
+    </script>
     <script src="{% static 'js/customCursor.js' %}"></script>
-    <script src="../static/js/signin.js"></script>
-    <script src="../static/js/message.js"></script>
+    <script src="{% static 'js/signin.js' %}"></script>
+    <script src="{% static 'js/message.js' %}"></script>
 </body>
 </html>

@@ -27,7 +27,6 @@
     transition: opacity 0.5s ease;
     font-weight: 700;
     border-radius: 15px;
-    background-color: rgba(113, 214, 25);
 }
 .banner_image{
     width: 100%;
@@ -148,6 +147,7 @@
     font-weight: 800;
     text-decoration: none;
     color: white;
+    border-radius: 15px;
     padding: 7px 20%;
     background-color: orange;
 }

@@ -39,55 +39,13 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <i><h1 class="fname own" style="letter-spacing: 0.3rem;" >Hari <span style="color: rgb(255, 238, 0); margin-left:10px; letter-spacing: 0.3rem;" > Haran</span></h1></i>
-        <nav class="navigation">
-            <ul class="head_nav">
-                <li class="name"><a href="#" class="link active " >Home</a></li>
-                <li class="name" id="drowpdown">
-                    <a class="link" id="width" >Projects<i class="fa-solid fa-angle-down"></i></a>
-                    <ul class="projects" >
-                        <li class="inline_name"><a href="/gallery" class="inline_link">Photo Galary</a></li>
-                        <li class="inline_name"><a href="/cards" class="inline_link">Cards</a></li>
-                        <li class="inline_name"><a href="https://hari-haran80.github.io/React-weatherApp/" class="inline_link" target="_blank">Weather App</a></li>
-                        <li class="inline_name"><a href="https://hari-haran80.github.io/React-portfolio/" class="inline_link" target="_blank">React Portfolio</a></li>
-                        <!-- <li class="inline_name">
-                            <a href="#" class="inline_link">Forms<i class="fa-solid fa-angle-down"></i></a>
-                            <ul class="sub_ul" id="sub_id">
-                                <li class="sub_li"><a href="/login" class="sub_link" target="_blank">Login Form</a></li>
-                                <li class="sub_li"><a href="/register" class="sub_link" target="_blank">Create New Acc</a></li>
-                                <li class="sub_li"><a href="/cis" class="sub_link" target="_blank">Cts Form</a></li>
-                            </ul>
-                            <li class="inline_name"><a href="https://hari-haran80.github.io/React-portfolio/" class="inline_link" target="_blank">Portfolio</a></li>
-                        </li> -->
-                    </ul>
-                </li>
-                <li class="name"><a href="/about" class="link" >About</a></li>
-                <li class="name"><a href="/contact" class="link" >Contact</a></li>
-                
-                {% if user.is_authenticated %}
-                    <button class="logout_login" > <a href="/logout" style="text-decoration: none; color:black;">logout</a></button>
-                {% else %}
-                    <button class="logout_login" > <a href="/signin" style="text-decoration: none; color:black;">login</a></button>
-                {% endif %}
-                <li class="name">
-                    <a href="/profile/{{ user.id }}"><img src="{{ image_url }}" class="IfImg" title="Profile" alt="Profile Image"></a>
-                </li>
-                
-                
-            </ul>
-            <span onclick="toggle()"><i class="fa-solid fa-bars" id="menu-icon"></i></span>
-        </nav>
-    </header>
-    <div class="whats_app">
-        <a class="fa-brands fa-whatsapp" style="color: #0ed85b;" title="Chat with me" href="https://wa.me/+971522322584"></a>
-    </div>
+    {% include 'nav.html' %}
     <div class="home_div" >
         <div class="img_div">
             <div class="message_div">
                 {% if messages %}
                     {% for x in messages %}
-                        <div class="message" id="myMessage">
+                        <div class="message {{ x.tags }}" id="myMessage">
                             {{x}}
                         </div>
                     {% endfor %}
@@ -98,7 +56,7 @@
                 <h1 class="design">Designed <i>to</i> Sell</h1>
                 <div class="diff_div">
                     <div class="get_div">
-                        <button class="start"><a href="contact" class="link" id="sub1">GET STARTED</a></button>
+                        <button class="start"><a href="contact" id="sub1">GET STARTED</a></button>
                     </div>
                     <p class="para">Get your free website trail today. No Credit Card Required</p>
                     <div class="star_div1" data-aos="fade-down-right">
@@ -117,7 +75,7 @@
     </div>
     <div class="skills_container">
         <div class="heading_expert" data-aos="fade-down">
-            <h1>What you can also expert from me...</h1>
+            <h1>What you can also expect from me...</h1>
         </div>
         <div class="skills_container_one">
             <div class="skills" id="skill1" data-aos="fade-right" data-aos-duration="300">
@@ -151,8 +109,8 @@
     
     <div class="form_main_div">
         <div class="blackscreen"></div>
-        <form action="" method="post" enctype="multipart/form-data" class="form">
-            <i class="fa-solid fa-xmark" onclick="CloseReview()"></i>
+        <form action="" method="post" enctype="multipart/form-data" class="form" onsubmit="WriteReviewBtnChange()">
+            <i class="fa-solid ReviewCloseIcon fa-xmark" onclick="CloseReview()"></i>
             {% csrf_token %}
             <div class="img_recieve">
                 <h3 class="Review_heading">Write Review Here!!!</h3><hr>
@@ -174,7 +132,7 @@
                 </div>
                 <textarea name="review" placeholder="Write your review here..."></textarea>
             </div>
-            <button class="submit_button_review" type="submit">submit review</button>
+            <button class="submit_button_review" id="WriteReviewBtn" type="submit">submit review</button>
         </form>
     </div>
     
@@ -193,11 +151,12 @@
                 {% if user_review %}
                     {% for x in image %}
                         {% if x.profile_name.pro.username == user.username %}
-                            <a class="review_link" style="cursor: pointer;" onclick="showFrame('{{ x.id }}')"><i class="fa-solid fa-pencil"></i>Edit review</a>
+                            <a class="review_link" style="cursor: pointer;" onclick="showFrame('{{ x.id }}')"><i class="fa-solid fa-pencil fa-shake"></i> Edit review</a>
+                            <a href="Confirm-delete/{{x.id}}"><span class="fa-solid fa-trash trashButton" title="Delete Review"></span></a>
                         {% endif %}
                     {% endfor %}
                 {% else %}
-                    <a onclick="reviewWrite()" style="cursor: pointer;" class="review_link fa-solid fa-pencil" data-aos="fade-down"> Write review</a>
+                    <a onclick="reviewWrite()" style="cursor: pointer;" class="review_link" data-aos="fade-down"><i class=" fa-solid fa-pencil fa-shake"></i> Write review</a>
                 {% endif %}
             </div>
             <div data-aos="fade-down-right" data-aos-duration="0">
@@ -308,7 +267,7 @@
                     </div>
                     <div class="del_button">
                         {% if user.username == x.profile_name.pro.username or user.is_superuser %}
-                            <button type="button" class="del_buttonoriginal"><a href="del_data/{{x.id}}" class="del_review"><i class="fa-solid fa-trash"></i> Delete Review</a></button>
+                            <button type="button" onclick="DeleteReviewBtn()" id="DeleteReviewBtn" class="del_buttonoriginal "><a href="Confirm-delete/{{x.id}}" class="del_review"><i class="fa-solid fa-trash"></i> Delete Review</a></button>
                         {% endif %}
                     </div>
                 </div>
@@ -342,7 +301,7 @@
     <footer>
         <p>&copy; For Educational Purpose only</p>
     </footer>
-    <script src="../static/js/index.js"></script>
+    <script src="{% static 'js/index.js' %}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
@@ -352,8 +311,20 @@
     
             window.location.href = "{% url 'home' %}";
         }
+        
+        // toggle menu script 
+
+        var mainDiv = document.querySelector('.form_main_div')
+        function reviewWrite(){
+            mainDiv.style.display = 'block';
+        }
+
+        var close = document.querySelector('.fa-xmark')
+        function CloseReview(){
+            mainDiv.style.display = 'none';
+        }
     </script>
-    <script src="../static/js/message.js"></script>
+    <script src="{% static 'js/message.js' %}"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 </html>

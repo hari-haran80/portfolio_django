@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Profile</title>
+    <link rel="stylesheet" href="{% static 'css/Confirmation.css' %}">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="Delete_container">
+        <form action="/Delete_profile/{{user.id}}" method="post" class="DeleteForm" onsubmit="DeleteReviewButton()">
+            {% csrf_token %}
+            <h1>Are You Sure Want to Delete ? </h1>
+            <h1>{{update.id}}</h1>
+            <div class="Buttons">
+                <button type="submit" class="DeleteButton">Yes</button>
+                <a href="/profile/{{user.id}}" class="CancelButton">Cancel</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        function DeleteReviewButton (){
+            DeleteButton = document.querySelector('.DeleteButton');
+            DeleteButton.textContent = 'Deleting';
+        }        
+    </script>
+</body>
+</html>

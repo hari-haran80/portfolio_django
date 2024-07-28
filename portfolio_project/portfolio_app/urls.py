@@ -35,6 +35,7 @@ urlpatterns = [
     
     path('profile/<int:id>', views.User_profile, name='profile'),
     path('profile_update/<int:id>', views.update_profile, name='profile_update'),
+    path('Confirm_Profile_delete/<int:id>', views.Confirm_Profile_delete, name = 'Confirm_Profile_delete'),
     path('Delete_profile/<int:id>', views.Delete_profile, name='Delete_profile'),
     
     # **************** User Review Section ********************
@@ -42,6 +43,7 @@ urlpatterns = [
     
     path('update/<int:id>/', views.update_review, name='update_review'),
     path('del_data/<int:id>', views.delete_review, name='delete data'),
+    path('Confirm-delete/<int:id>', views.Confirm_delete, name = 'Confirm-delete'),
     
     # ***************** Access Denied *****************
 

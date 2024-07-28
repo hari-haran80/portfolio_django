@@ -6,58 +6,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="../static/images/register.png" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/custom-cursor.css' %}">
-    <link rel="stylesheet" href="../static/css/registration.css"">
+    <link rel="stylesheet" href="{% static 'css/messages.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}"">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Register</title>
     <style>
-        
+        .btn_create:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
     {% include 'cursor.html' %}
+    {% include 'preloader.html' %}
     <div class="registration_main_container">
         <div class="registration_sub_container">
-            <h2>Create New account</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message_div {{ message.tags }}" id="myMessage">
+                        <p>{{message}}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <h2>Create New Account</h2>
             <form action="" method="POST" id="signupForm">
                 {% csrf_token %}
                 <div class="Username_div">
                     <label for="">User Name:</label><br>
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" name="username" placeholder="Enter User Name"  required>
+                    <input type="text" name="username" value="{{ username|default:'' }}" maxlength="25" placeholder="User Name"  required>
                 </div>
                 <div class="names_div">
                     <div class="first_name_div">
                         <label for="">First name</label><br>
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="First name"  name="First_name" required>
+                        <input type="text" placeholder="First Name" value="{{ First_name|default:'' }}" maxlength="15" id="First_name" name="First_name" required>
+                        <div class="FNameValidation"></div>
                     </div>
                     <div class="last_name_div">
                         <label for="">Last Name</label><br>
-                        <input type="text" placeholder="Last name" name="Last_name"  required>
+                        <input type="text" placeholder="Last Name" id="Last_name" value="{{ Last_name|default:'' }}" maxlength="15" name="Last_name"  required>
+                        <div class="LNameValidation"></div>
                     </div>
                 </div>
                 <div class="email_div">
                     <label for="">Email address:</label><br>
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="example@gmail.com" name="email"  required>
+                    <input type="email" placeholder="example@gmail.com" name="email"value="{{ email|default:'' }}"  required>
                 </div>
                 <div class="password_div">
-                    <label for="">Enter Password:</label><br>
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Enter your Password" id="password" name="Password1"  required>
-                    <img src="../static/images/eye-close.png" alt="view password" title="view password" id="eyeicon">
-                    <br> <br>
+                    <div class="password_one">
+                        <label for="">Enter Password:</label><br>
+                        <i class="fa-solid fa-lock lock1"></i>
+                        <input type="password" placeholder="Enter your Password" id="password" name="Password1" value="{{ Password1|default:'' }}"  required>
+                        <img src="../static/images/eye-close.png" alt="view password" class="eyeicon" title="view password" id="eyeicon">
+                    </div>
                     <span id="passwordError" style="color: red;"></span>
-                    <label for="">Confirm Password:</label><br>
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Re-Enter your Password" name="Password2"  required>
-                    {% if messages %}
-                        {% for message in messages %}
-                        <div class="message_div" id="myMessage">
-                            <p>{{message}}</p>
-                        </div>
-                        {% endfor %}
-                    {% endif %}
+                    <div class="password_two">
+                        <label for="">Confirm Password:</label><br>
+                        <i class="fa-solid fa-lock lock2"></i>
+                        <input type="password" placeholder="Re-Enter your Password" id="password2" name="Password2" value="{{ Password1|default:'' }}"  required>
+                        <img src="../static/images/eye-close.png" alt="view password" class="eyeicon" title="view password" id="eyeicon1">
+                    </div>
                 </div>
                 <div class="submit_button">
                     <button type="submit" class="btn_create">Create Account</button>
@@ -68,10 +79,16 @@
             </form>
         </div>
     </div>
+    <script>
+        // function CreateAccount(){
+        //     const createBtn = document.querySelector('.btn_create');
+        //     createBtn.disabled = true;
+        //     createBtn.textContent = "Creating Account.."
+        // }
+    </script>
     <script src="{% static 'js/customCursor.js' %}"></script>
-    <script src="../static/js/register.js"></script>
-    <script src="../static/js/signin.js"></script>
-    <script src="../static/js/message.js"></script>
-    <script src="../static/js/validation.js"></script>
+    <script src="{% static 'js/register.js' %}"></script>
+    <script src="{% static 'js/signin.js' %}"></script>
+    <script src="{% static 'js/validation.js' %}"></script>
 </body>
 </html>

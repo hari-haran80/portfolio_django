@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Delete_container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.DeleteForm{
+    border: 1px solid black;
+    background-color: aliceblue;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+.DeleteForm h1{
+    font-style:oblique;
+}
+.Buttons{
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+.DeleteButton{
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+    color: aliceblue;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.DeleteButton:hover{
+    background-color: rgb(255, 0, 144);
+}
+.CancelButton{
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    background-color: rgb(0, 136, 255);
+    color: aliceblue;
+    padding: 10px 30px;
+    border: none;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+.CancelButton:hover{
+    background-color: rgb(0, 81, 255);
+}

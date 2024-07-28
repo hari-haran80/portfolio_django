@@ -7,11 +7,20 @@
     padding: 10px;
     font-weight:800;
     background-color:orange;
-    border-radius:10px;
+    border-radius:15px;
     border:none;
 }
 .image_div {
     height: auto;
+    position: relative;
+}
+.profile_image_view{
+    width: 60px;
+    height: 60px;
+    left: 11rem;
+    top: -0.5rem;
+    border-radius: 50%;
+    position: absolute;
 }
 .sub_container{
     display: flex;
@@ -27,8 +36,13 @@
 .inputs{
     margin: 0;
 }
+.back_button:hover{
+    background-color: orangered;
+}
 .back_button{
     padding: 5px;
+    border-radius: 10px;
+    border: none;
     position: absolute;
     margin-top: -30px;
     margin-left: 30px;

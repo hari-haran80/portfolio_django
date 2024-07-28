@@ -7,22 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/custom-cursor.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../static/css/signin.css">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">    
+    <link rel="stylesheet" href="{% static 'css/messages.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Reset</title>
     <style>
-        
+        #ResetBtn:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
     {% include 'cursor.html' %}
+    {% include 'preloader.html' %}
     <div class="main_login_container">
         <div class="sub_login_container">
-            <form action="" method="POST" id="signupForm">
+            <form action="" method="POST" id="signupForm" onsubmit="ResettingPassword()">
                 {% csrf_token %}
                 {% if messages %}
                     {% for x in messages %}
-                        <div class="message_div" id="myMessage">
+                        <div class="message_div {{ x.tags }}" id="myMessage">
                             <p>{{x}}</p>
                         </div>
                     {% endfor %}
@@ -32,29 +37,36 @@
                 <div class="Email_div_login">
                     <label for="">User Name:</label><br>                    
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" name="username" id="" placeholder="User Name" required>
+                    <input type="text" name="username" id="" placeholder=" Enter User Name" required>
                 </div>
                 <div class="Password_login_div">
-                    <label for="">Password:</label><br>
+                    <label for="">New Password:</label><br>
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
+                    <input type="password" name="password" id="password" placeholder="Enter Your New Password" required>
                     <img src="../static/images/eye-close.png" alt="view password" title="view password" id="eyeicon">
                     <br><br>
                     <p id="passwordError" style="color: red;"></p>
                 </div>
                 <div class="Login_button_div">
-                    <button type="submit">Submit</button>
+                    <button id="ResetBtn" type="submit">Reset Password</button>
                 </div>
                 <div class="span_div"></div>
                 <div class="New_account_div">
-                    <p>Don't have an account? <a href="new_registration">Create one now</a>
+                    <p>Don't have an account? <a href="new_registration">Create One Now</a>
                 </div>
             </form>
         </div>
     </div>
+    <script>
+        function ResettingPassword() {
+            const resetBtn = document.getElementById('ResetBtn');
+            resetBtn.disabled = true;
+            resetBtn.textContent = 'Changing ....';
+        }
+    </script>
     <script src="{% static 'js/customCursor.js' %}"></script>
-    <script src="../static/js/signin.js"></script>
-    <script src="../static/js/message.js"></script>
-    <script src="../static/js/validation.js"></script>
+    <script src="{% static 'js/signin.js' %}"></script>
+    <script src="{% static 'js/message.j' %}"></script>
+    <script src="{% static 'js/validation.js' %}"></script>
 </body>
 </html>
