@@ -58,11 +58,6 @@ const navLink = document.querySelectorAll('.link').forEach(link =>{
 
 // changing button status script when submitting
 
-function WriteReviewBtnChange (){
-    const WriteReviewBtn = document.getElementById('WriteReviewBtn');
-    WriteReviewBtn.disabled = true;
-    WriteReviewBtn.textContent = 'Posting...';
-}
 function DeleteReviewBtn (){
     const DeleteReviewBtn = document.getElementById('DeleteReviewBtn');
     DeleteReviewBtn.textContent = 'Deleting...';
@@ -82,4 +77,42 @@ function showFrame(id) {
     }
 
     iframeContainer.appendChild(iframe);
+}
+
+
+// rating form submition 
+
+function validateForm() {
+            
+    var ratings = document.getElementsByName('rating');
+    var ratingSelected = false;
+    
+    for (var i = 0; i < ratings.length; i++) {
+        if (ratings[i].checked) {
+            ratingSelected = true;
+            break;
+        }
+    }
+
+    if (!ratingSelected) {
+        
+        var errorMessage = document.querySelector('.RatingErrorMessage');
+        errorMessage.innerHTML = '*Please select a rating';
+        
+        // Message disappear Script
+
+        setTimeout(function (){
+            errorMessage.style.display = 'none';
+        }, 2000);
+        
+        return false;
+    }
+
+    // Button changing Script when submiting
+
+    const WriteReviewBtn = document.getElementById('WriteReviewBtn');
+    WriteReviewBtn.disabled = true;
+    WriteReviewBtn.textContent = 'Posting...';
+
+    return true;
 }

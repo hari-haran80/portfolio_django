@@ -135,6 +135,7 @@ textarea{
     background-color:orange ;
     color: black;
     text-decoration:none ;
+    cursor: pointer;
 }
 .fa-xmark:hover{
     background-color: red;

@@ -2,12 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 body{
     letter-spacing: .1rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    
+    font-family: Georgia, 'Times New Roman', Times, serif;  
+}
+.active{
+    border-bottom: 5px solid aqua;
+    border-radius: 15px;
+    color: aqua;
 }
 .navigation{
     font-weight: 500;

@@ -33,7 +33,7 @@
     transition: opacity 0.5s ease;
 }
 .message_div p{
-    color: whitesmoke;
+    color: black;
     width: 100%;
     font-size: 13px;
     text-align: center;
@@ -199,6 +199,10 @@ input:focus{
 }
 .btn_create:hover{
     background-color: orange;
+}
+.btn_create:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
 }
 .already_have{
     width: 100%;

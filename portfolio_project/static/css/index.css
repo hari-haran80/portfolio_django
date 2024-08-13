@@ -228,6 +228,13 @@ h4{
     margin-bottom: 10px;
 }
 
+.RatingErrorMessage{
+    font-size: 12px;
+    margin-top: 10px;
+    width: 100%;
+    height: fit-content;
+    color: red;
+}
 
 .submit_button_review:disabled{
     cursor: not-allowed;
@@ -428,7 +435,7 @@ button:hover{
 button:hover .contact{
     color: black;
 }
-.link:hover, .last_link:hover{
+.last_link:hover{
     color:red;
 }
 

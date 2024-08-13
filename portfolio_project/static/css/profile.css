@@ -151,6 +151,13 @@
     padding: 7px 20%;
     background-color: orange;
 }
+.button_edit a:hover{
+    background-color: darkorange;
+}
+.LoadingBtn{
+    background-color: gray;
+    cursor: not-allowed;
+}
 @media screen and (max-width: 1240px){
     .details_div{
         margin-left: 500px;

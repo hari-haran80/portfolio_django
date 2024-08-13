@@ -93,6 +93,9 @@ def contact(request):
             )
             messages.success(request, "Your message has been sent successfully! We'll be in touch soon. !!!.")
             return redirect('contact')
+        
+        else:
+            messages.error(request, "Please enter valid details.")
 
     else:
         form = contact_form()

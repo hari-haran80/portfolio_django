@@ -77,7 +77,6 @@ h4{
     margin-left: 50px;
     color: aliceblue;
     margin-top: 13vh;
-
  }
 .one{
     margin-top: 30px;
@@ -116,6 +115,10 @@ h4{
 .sub_button:hover{
     background-color: #f1f1f1;
     color: black;
+}
+.sub_button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
 }
 @media screen and (max-width: 768px){
     .main{

@@ -24,7 +24,6 @@
             z-index: 9999;
             display: none;
         }
-    
         .overlayContainer iframe {
             width: 95%;
             height: 95%; 
@@ -109,11 +108,12 @@
     
     <div class="form_main_div">
         <div class="blackscreen"></div>
-        <form action="" method="post" enctype="multipart/form-data" class="form" onsubmit="WriteReviewBtnChange()">
+        <form action="" method="post" enctype="multipart/form-data" class="form" onsubmit="return validateForm()">
             <i class="fa-solid ReviewCloseIcon fa-xmark" onclick="CloseReview()"></i>
             {% csrf_token %}
             <div class="img_recieve">
                 <h3 class="Review_heading">Write Review Here!!!</h3><hr>
+                <div class="RatingErrorMessage"></div>
                 <div class="rating">
                     <input type="radio" name="rating" id="star5" value="5">
                     <label for="star5" class="full"></label>
