@@ -6,7 +6,7 @@ from django.views.static import serve
 
 urlpatterns = [
     
-    re_path(r'^gallery/(?P<path>.*)$', serve, {'document_root': settings.GALLERY_ROOT}),    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.IMAGE_ROOT}),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.IMAGE_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
   
     path('', views.home, name = 'home'),
