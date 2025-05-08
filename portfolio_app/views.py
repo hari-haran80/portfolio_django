@@ -10,6 +10,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.http import FileResponse
 import os
+from django.http import JsonResponse
 
 def resume_view(request):
     pdf_path = os.path.join(settings.BASE_DIR, 'static/new cv.pdf')
@@ -379,3 +380,7 @@ def Denied(request):
 
 def custom_page_not_found(request, exception):
     return render(request, 'error.html', status=404)
+
+
+def health_check(request):
+    return JsonResponse({"status": "ok"}, status=200)
